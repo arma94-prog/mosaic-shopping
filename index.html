@@ -51,13 +51,14 @@ a{color:inherit;text-decoration:none}
 .hero-note{margin-top:12px;font-size:11px;color:var(--text-muted)}
 
 /* Screenshots */
-.hero-screens{display:flex;justify-content:center;align-items:center;gap:16px;margin-top:48px;perspective:800px;max-width:700px;margin-left:auto;margin-right:auto}
-.hero-screen{width:200px;height:380px;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.12);border:1px solid var(--border);overflow:hidden;transition:transform .4s cubic-bezier(.2,0,0,1)}
+.hero-screens{display:flex;justify-content:center;align-items:center;gap:16px;margin-top:48px;perspective:800px;max-width:760px;margin-left:auto;margin-right:auto}
+.hero-screen{width:200px;height:380px;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.12);border:1px solid var(--border);overflow:hidden;transition:transform .4s cubic-bezier(.2,0,0,1);position:relative}
 .hero-screen:nth-child(1){transform:rotateY(3deg)}
-.hero-screen:nth-child(2){width:220px;height:418px;transform:scale(1);z-index:2;box-shadow:0 12px 48px rgba(0,0,0,.18)}
+.hero-screen:nth-child(2){width:240px;height:456px;transform:scale(1);z-index:2;box-shadow:0 12px 48px rgba(0,0,0,.18)}
 .hero-screen:nth-child(3){transform:rotateY(-3deg)}
 .hero-screen:hover{transform:scale(1.05)}
 .hero-screen img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.screen-label{position:absolute;top:0;left:0;right:0;text-align:center;padding:6px 0;font-size:11px;font-weight:700;color:#fff;background:rgba(232,118,43,.85);z-index:3;letter-spacing:.5px}
 
 /* ---- PAIN ---- */
 .pain{padding:64px 24px;text-align:center;background:var(--card)}
@@ -132,8 +133,8 @@ a{color:inherit;text-decoration:none}
 <!-- HERO -->
 <section class="hero">
   <div class="hero-badge">무료 크롬 확장 프로그램</div>
-  <h1>최저가 또 놓치실 건가요?<br><em>이제 가격이 떨어지면 알려드려요</em></h1>
-  <p class="hero-sub">여러 쇼핑몰 가격을 자동으로 비교하고<br>원하는 가격이 되면 알려드립니다</p>
+  <h1>최저가 또 놓치실 건가요?<br><em>가격이 떨어지면 알려드려요!</em></h1>
+  <p class="hero-sub">여러 쇼핑몰 상품을 한번에 검색하고,<br>북마크한 상품이 원하는 가격이 되면 알려드립니다!</p>
   <button class="hero-cta" onclick="installCTA()">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 12 16 16 12"/><line x1="12" y1="8" x2="12" y2="16"/></svg>
     무료로 시작하기
@@ -141,9 +142,9 @@ a{color:inherit;text-decoration:none}
   <div class="hero-note">Chrome 브라우저 · 설치 5초 · 회원가입 없음</div>
 
   <div class="hero-screens">
-    <div class="hero-screen"><img src="screenshots/home.png" alt="이벤트 페이지" loading="lazy"></div>
-    <div class="hero-screen"><img src="screenshots/bookmark.png" alt="북마크 가격 추적" loading="lazy"></div>
-    <div class="hero-screen"><img src="screenshots/search.png" alt="검색 결과" loading="lazy"></div>
+    <div class="hero-screen"><span class="screen-label">핫딜 모음</span><img src="screenshots/home.png" alt="이벤트 페이지" loading="lazy"></div>
+    <div class="hero-screen"><span class="screen-label">북마크 / 가격알림</span><img src="screenshots/bookmark.png" alt="북마크 가격 추적" loading="lazy"></div>
+    <div class="hero-screen"><span class="screen-label">통합 검색</span><img src="screenshots/search.png" alt="검색 결과" loading="lazy"></div>
   </div>
 </section>
 
