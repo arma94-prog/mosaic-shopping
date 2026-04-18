@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>모자이크 쇼핑 — 여러 쇼핑몰을 한번에 비교하세요</title>
+<meta name="description" content="쿠팡, 네이버, G마켓, SSG 등 주요 쇼핑몰의 가격을 한눈에 비교하고 최저가를 놓치지 마세요. 무료 크롬 확장 프로그램.">
+
+<!-- OG -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="모자이크 쇼핑 — 여러 쇼핑몰을 한번에 비교하세요">
+<meta property="og:description" content="쿠팡, 네이버, G마켓 등 주요 쇼핑몰 가격을 한눈에. 무료 크롬 확장 프로그램.">
+<meta property="og:image" content="screenshots/home.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --brand:#E8762B;--brand-light:#FBE8D9;--brand-dark:#C95A15;
+  --bg:#FDFCF9;--bg-warm:#FFF8F0;--text:#1A1A1A;--text-sub:#6B6B6B;--text-muted:#A8A699;
+  --border:#F0EDE4;--card:#FFFFFF;
+  --font:"Pretendard Variable","Pretendard",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--text);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* ---- NAV ---- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,252,249,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:box-shadow .3s}
+.nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.nav-inner{max-width:960px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:15px;color:var(--brand)}
+.nav-logo svg{width:28px;height:28px}
+.nav-cta{background:var(--brand);color:#fff;border:none;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font);transition:background .2s,transform .1s}
+.nav-cta:hover{background:var(--brand-dark)}
+.nav-cta:active{transform:scale(.97)}
+
+/* ---- HERO ---- */
+.hero{padding:120px 24px 60px;text-align:center;background:linear-gradient(180deg,var(--bg-warm) 0%,var(--bg) 100%);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-60px;right:-120px;width:400px;height:400px;background:radial-gradient(circle,rgba(232,118,43,.08) 0%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-block;background:var(--brand-light);color:var(--brand);font-size:12px;font-weight:700;padding:5px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.3px}
+.hero h1{font-size:clamp(28px,5vw,42px);font-weight:900;line-height:1.3;margin-bottom:16px;letter-spacing:-1px}
+.hero h1 em{font-style:normal;color:var(--brand);position:relative}
+.hero-sub{font-size:clamp(14px,2.5vw,17px);color:var(--text-sub);max-width:440px;margin:0 auto 32px;line-height:1.6}
+.hero-cta{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#fff;border:none;padding:14px 32px;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--font);transition:all .2s;box-shadow:0 4px 16px rgba(232,118,43,.3)}
+.hero-cta:hover{background:var(--brand-dark);transform:translateY(-2px);box-shadow:0 6px 24px rgba(232,118,43,.4)}
+.hero-cta svg{width:20px;height:20px}
+.hero-note{margin-top:12px;font-size:11px;color:var(--text-muted)}
+
+/* Screenshots */
+.hero-screens{display:flex;justify-content:center;gap:16px;margin-top:48px;perspective:800px;max-width:700px;margin-left:auto;margin-right:auto}
+.hero-screen{width:200px;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.12);border:1px solid var(--border);overflow:hidden;transition:transform .4s cubic-bezier(.2,0,0,1)}
+.hero-screen:nth-child(1){transform:rotateY(3deg) translateY(10px)}
+.hero-screen:nth-child(2){transform:scale(1.05) translateY(-5px);z-index:2;box-shadow:0 12px 48px rgba(0,0,0,.18)}
+.hero-screen:nth-child(3){transform:rotateY(-3deg) translateY(10px)}
+.hero-screen:hover{transform:scale(1.08) translateY(-10px)}
+.hero-screen img{width:100%;display:block}
+
+/* ---- PAIN ---- */
+.pain{padding:64px 24px;text-align:center;background:var(--card)}
+.pain-text{font-size:clamp(18px,3.5vw,24px);font-weight:700;line-height:1.5;max-width:480px;margin:0 auto;color:var(--text)}
+.pain-text em{font-style:normal;color:var(--brand);border-bottom:2px solid var(--brand-light)}
+
+/* ---- FEATURES ---- */
+.features{padding:64px 24px;max-width:720px;margin:0 auto}
+.section-label{text-align:center;font-size:12px;font-weight:700;color:var(--brand);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.section-title{text-align:center;font-size:clamp(22px,4vw,30px);font-weight:900;margin-bottom:40px;letter-spacing:-0.5px}
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:560px){.feat-grid{grid-template-columns:1fr}}
+.feat-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;transition:all .25s}
+.feat-card:hover{border-color:var(--brand-light);box-shadow:0 4px 20px rgba(232,118,43,.08);transform:translateY(-3px)}
+.feat-card.wide{grid-column:1/-1}
+.feat-icon{width:40px;height:40px;border-radius:10px;background:var(--brand-light);display:flex;align-items:center;justify-content:center;color:var(--brand);margin-bottom:12px}
+.feat-icon svg{width:22px;height:22px}
+.feat-card h3{font-size:15px;font-weight:700;margin-bottom:6px}
+.feat-card p{font-size:12px;color:var(--text-sub);line-height:1.5}
+
+/* ---- MALLS ---- */
+.malls{padding:48px 24px;background:var(--card);text-align:center}
+.mall-logos{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:600px;margin:0 auto}
+.mall-pill{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:6px 14px;font-size:11px;font-weight:600;color:var(--text-sub);white-space:nowrap}
+
+/* ---- HOW ---- */
+.how{padding:64px 24px;max-width:560px;margin:0 auto}
+.step-list{display:flex;flex-direction:column;gap:20px}
+.step{display:flex;gap:16px;align-items:flex-start}
+.step-num{width:36px;height:36px;border-radius:50%;background:var(--brand);color:#fff;font-size:15px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none}
+.step-body h4{font-size:14px;font-weight:700;margin-bottom:4px}
+.step-body p{font-size:12px;color:var(--text-sub)}
+
+/* ---- FAQ ---- */
+.faq{padding:64px 24px;max-width:560px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-q{font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:8px;user-select:none}
+.faq-q::after{content:"+";font-size:18px;color:var(--text-muted);transition:transform .2s}
+.faq-item.open .faq-q::after{transform:rotate(45deg);color:var(--brand)}
+.faq-a{font-size:12px;color:var(--text-sub);line-height:1.6;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s}
+.faq-item.open .faq-a{max-height:200px;padding-top:10px}
+
+/* ---- CTA FINAL ---- */
+.cta-final{padding:64px 24px;text-align:center;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-warm) 100%)}
+.cta-final h2{font-size:clamp(20px,4vw,28px);font-weight:900;margin-bottom:8px}
+.cta-final p{font-size:13px;color:var(--text-sub);margin-bottom:24px}
+
+/* ---- FOOTER ---- */
+.footer{padding:24px;text-align:center;border-top:1px solid var(--border);font-size:11px;color:var(--text-muted)}
+.footer-links{display:flex;justify-content:center;gap:12px;margin-bottom:8px;flex-wrap:wrap}
+.footer-links a{color:var(--text-muted);transition:color .15s}
+.footer-links a:hover{color:var(--text-sub)}
+
+/* ---- Animations ---- */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <svg viewBox="0 0 100 100" fill="none"><rect width="100" height="100" rx="18" fill="#E8762B"/><rect x="12" y="16" width="34" height="30" rx="4" fill="#fff" opacity=".9"/><rect x="54" y="16" width="34" height="30" rx="4" fill="#fff" opacity=".7"/><rect x="12" y="54" width="34" height="30" rx="4" fill="#fff" opacity=".7"/><rect x="54" y="54" width="34" height="30" rx="4" fill="#fff" opacity=".5"/></svg>
+      모자이크 쇼핑
+    </a>
+    <button class="nav-cta" onclick="installCTA()">Chrome에 추가</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">무료 크롬 확장 프로그램</div>
+  <h1>여러 쇼핑몰을<br><em>한번에 비교</em>하세요</h1>
+  <p class="hero-sub">쿠팡, 네이버, G마켓, SSG 등<br>주요 쇼핑몰의 가격을 한눈에 비교하고<br>최저가를 놓치지 마세요.</p>
+  <button class="hero-cta" onclick="installCTA()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 12 16 16 12"/><line x1="12" y1="8" x2="12" y2="16"/></svg>
+    무료로 시작하기
+  </button>
+  <div class="hero-note">Chrome 브라우저 · 설치 5초 · 회원가입 없음</div>
+
+  <div class="hero-screens">
+    <div class="hero-screen"><img src="screenshots/home.png" alt="이벤트 페이지" loading="lazy"></div>
+    <div class="hero-screen"><img src="screenshots/bookmark.png" alt="북마크 가격 추적" loading="lazy"></div>
+    <div class="hero-screen"><img src="screenshots/search.png" alt="검색 결과" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- PAIN POINT -->
+<section class="pain fade-up">
+  <p class="pain-text">탭 10개 열고 가격 비교하느라<br><em>지치셨나요?</em><br>모자이크 쇼핑이 대신 해드릴게요.</p>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="section-label fade-up">Features</div>
+  <h2 class="section-title fade-up">스마트한 쇼핑을 위한<br>핵심 기능</h2>
+  <div class="feat-grid">
+    <div class="feat-card fade-up">
+      <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg></div>
+      <h3>통합 검색</h3>
+      <p>하나의 검색어로 여러 쇼핑몰을 동시에 검색. 탭을 오가며 비교할 필요가 없습니다.</p>
+    </div>
+    <div class="feat-card fade-up">
+      <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></div>
+      <h3>상품 북마크</h3>
+      <p>관심 상품을 쇼핑몰별로 북마크하고, 최저가를 한눈에 파악하세요.</p>
+    </div>
+    <div class="feat-card fade-up">
+      <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+      <h3>가격 자동 갱신</h3>
+      <p>크롬이 열려있으면 하루 최대 4번 자동 갱신. 로그인 시 회원 할인가까지 반영.</p>
+    </div>
+    <div class="feat-card fade-up">
+      <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+      <h3>목표가 알림</h3>
+      <p>목표 가격을 설정하면 해당 가격 이하로 떨어질 때 팝업으로 알림.</p>
+    </div>
+    <div class="feat-card wide fade-up">
+      <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+      <h3>크롬 계정 동기화</h3>
+      <p>검색 이력과 북마크가 크롬 계정에 동기화되어 다른 기기에서도 동일하게 이용할 수 있습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORTED MALLS -->
+<section class="malls fade-up">
+  <div class="section-label">Supported</div>
+  <h2 class="section-title">40개+ 쇼핑몰 지원</h2>
+  <div class="mall-logos">
+    <span class="mall-pill">네이버쇼핑</span>
+    <span class="mall-pill">쿠팡</span>
+    <span class="mall-pill">G마켓</span>
+    <span class="mall-pill">SSG</span>
+    <span class="mall-pill">11번가</span>
+    <span class="mall-pill">롯데ON</span>
+    <span class="mall-pill">무신사</span>
+    <span class="mall-pill">29CM</span>
+    <span class="mall-pill">에이블리</span>
+    <span class="mall-pill">올리브영</span>
+    <span class="mall-pill">오늘의집</span>
+    <span class="mall-pill">IKEA</span>
+    <span class="mall-pill">마켓컬리</span>
+    <span class="mall-pill">CJ더마켓</span>
+    <span class="mall-pill">iHerb</span>
+    <span class="mall-pill">알리익스프레스</span>
+    <span class="mall-pill">Amazon</span>
+    <span class="mall-pill">다나와</span>
+    <span class="mall-pill">에누리</span>
+    <span class="mall-pill">하이마트</span>
+    <span class="mall-pill">삼성</span>
+    <span class="mall-pill">LG전자</span>
+    <span class="mall-pill">외 다수...</span>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="section-label fade-up">How it Works</div>
+  <h2 class="section-title fade-up">3단계로 시작하세요</h2>
+  <div class="step-list">
+    <div class="step fade-up">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>크롬에서 설치</h4><p>Chrome 웹스토어에서 "모자이크 쇼핑"을 설치하세요. 5초면 됩니다.</p></div>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>검색 & 북마크</h4><p>사이드패널에서 검색하면 여러 쇼핑몰이 동시에 열립니다. 마음에 드는 상품을 북마크하세요.</p></div>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>가격 비교 & 알림</h4><p>북마크된 상품의 가격이 자동 갱신됩니다. 목표가에 도달하면 알림을 받으세요.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="section-label fade-up">FAQ</div>
+  <h2 class="section-title fade-up">자주 묻는 질문</h2>
+  <div class="faq-item fade-up">
+    <div class="faq-q">무료인가요?</div>
+    <div class="faq-a">네, 모자이크 쇼핑은 완전 무료입니다. 별도의 회원가입도 필요 없습니다.</div>
+  </div>
+  <div class="faq-item fade-up">
+    <div class="faq-q">개인정보는 안전한가요?</div>
+    <div class="faq-a">모자이크 쇼핑은 검색 이력과 북마크만 크롬 계정에 동기화합니다. 별도 서버로 개인정보를 수집하지 않습니다.</div>
+  </div>
+  <div class="faq-item fade-up">
+    <div class="faq-q">어떤 브라우저를 지원하나요?</div>
+    <div class="faq-a">Chrome 브라우저를 지원합니다. Chromium 기반 브라우저(Edge, Whale 등)에서도 사용 가능합니다.</div>
+  </div>
+  <div class="faq-item fade-up">
+    <div class="faq-q">쇼핑몰 추가 요청이 가능한가요?</div>
+    <div class="faq-a">네! 하단의 오류 제보를 통해 원하시는 쇼핑몰을 알려주시면 검토 후 추가하겠습니다.</div>
+  </div>
+  <div class="faq-item fade-up">
+    <div class="faq-q">회원 할인가도 반영되나요?</div>
+    <div class="faq-a">네, 쇼핑몰에 로그인된 상태에서 가격이 갱신되면 회원 할인가가 반영됩니다.</div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final fade-up">
+  <h2>지금 바로 시작하세요</h2>
+  <p>설치 5초, 회원가입 없음, 완전 무료</p>
+  <button class="hero-cta" onclick="installCTA()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 12 16 16 12"/><line x1="12" y1="8" x2="12" y2="16"/></svg>
+    Chrome에 추가하기
+  </button>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="mailto:arma94@gmail.com">사업 제휴</a>
+    <a href="mailto:arma94@gmail.com">오류 제보</a>
+  </div>
+  Copyright © 2025 모자이크 쇼핑. All rights reserved.
+</footer>
+
+<script>
+// Chrome Web Store URL — 등록 후 교체
+const STORE_URL = "https://chrome.google.com/webstore";
+function installCTA() { window.open(STORE_URL, "_blank"); }
+
+// Nav scroll effect
+const nav = document.getElementById("nav");
+window.addEventListener("scroll", () => {
+  nav.classList.toggle("scrolled", window.scrollY > 10);
+});
+
+// Fade-in on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); observer.unobserve(e.target); } });
+}, { threshold: 0.15 });
+document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+
+// FAQ toggle
+document.querySelectorAll(".faq-q").forEach(q => {
+  q.addEventListener("click", () => q.parentElement.classList.toggle("open"));
+});
+</script>
+</body>
+</html>
