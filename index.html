@@ -32,7 +32,7 @@ a{color:inherit;text-decoration:none}
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,252,249,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:box-shadow .3s}
 .nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06)}
 .nav-inner{max-width:960px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:15px;color:var(--brand)}
+.nav-logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:15px;color:#1A1A1A}
 .nav-logo svg{width:28px;height:28px}
 .nav-cta{background:var(--brand);color:#fff;border:none;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font);transition:background .2s,transform .1s}
 .nav-cta:hover{background:var(--brand-dark)}
@@ -114,6 +114,23 @@ a{color:inherit;text-decoration:none}
 .footer-links{display:flex;justify-content:center;gap:12px;margin-bottom:8px;flex-wrap:wrap}
 .footer-links a{color:var(--text-muted);transition:color .15s}
 .footer-links a:hover{color:var(--text-sub)}
+
+/* ---- Modal ---- */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:9999;display:flex;align-items:center;justify-content:center;animation:modalFade .15s ease}
+@keyframes modalFade{from{opacity:0}to{opacity:1}}
+.modal-box{background:#fff;border-radius:12px;width:calc(100% - 48px);max-width:400px;box-shadow:0 12px 40px rgba(0,0,0,0.2);overflow:hidden;font-family:var(--font)}
+.modal-hd{display:flex;align-items:center;justify-content:space-between;padding:16px 20px 12px;border-bottom:1px solid var(--border)}
+.modal-title{font-size:15px;font-weight:700;color:#1A1A1A}
+.modal-close{width:28px;height:28px;border:none;background:transparent;color:#A8A699;cursor:pointer;font-size:20px;line-height:1;border-radius:4px;display:flex;align-items:center;justify-content:center}
+.modal-close:hover{background:#F1EFE8;color:#1A1A1A}
+.modal-body{padding:16px 20px;display:flex;flex-direction:column;gap:12px}
+.modal-select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:13px;color:#1A1A1A;background:#fff;font-family:var(--font);outline:none}
+.modal-select:focus{border-color:var(--brand)}
+.modal-textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:13px;color:#1A1A1A;resize:vertical;font-family:var(--font);outline:none;min-height:100px;box-sizing:border-box}
+.modal-textarea:focus{border-color:var(--brand)}
+.modal-submit{width:100%;padding:12px;border:none;background:var(--brand);color:#fff;font-size:14px;font-weight:600;cursor:pointer;transition:background .15s;font-family:var(--font)}
+.modal-submit:hover{background:var(--brand-dark)}
+.modal-submit:disabled{background:#D9D5C9;cursor:default}
 
 /* ---- Animations ---- */
 .fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
@@ -291,11 +308,30 @@ a{color:inherit;text-decoration:none}
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-links">
-    <a href="mailto:arma94@gmail.com">사업 제휴</a>
-    <a href="mailto:arma94@gmail.com">오류 제보</a>
+    <a href="#" id="landingPartner">사업 제휴</a>
   </div>
   Copyright © 2025 모자이크 쇼핑. All rights reserved.
 </footer>
+
+<!-- 사업 제휴 모달 -->
+<div id="partnerModal" class="modal-overlay" hidden>
+  <div class="modal-box">
+    <div class="modal-hd">
+      <span class="modal-title">사업 제휴</span>
+      <button type="button" class="modal-close" id="partnerClose">×</button>
+    </div>
+    <div class="modal-body">
+      <select id="partnerType" class="modal-select">
+        <option value="affiliate">제휴 마케팅 / 어필리에이트</option>
+        <option value="api">API 연동</option>
+        <option value="ad">광고 / 프로모션</option>
+        <option value="other">기타</option>
+      </select>
+      <textarea id="partnerText" class="modal-textarea" rows="4" placeholder="제휴 관련 내용을 입력해주세요&#10;(회사명, 담당자, 연락처 포함)"></textarea>
+    </div>
+    <button type="button" class="modal-submit" id="partnerSubmit">보내기</button>
+  </div>
+</div>
 
 <script>
 // Chrome Web Store URL — 등록 후 교체
@@ -317,6 +353,34 @@ document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
 // FAQ toggle
 document.querySelectorAll(".faq-q").forEach(q => {
   q.addEventListener("click", () => q.parentElement.classList.toggle("open"));
+});
+
+// Partner modal
+const REPORT_URL = "https://script.google.com/macros/s/AKfycbwmci68UYC1BVgWkI69FU-xSi5fyY4dN2oDUxZqiaX7RUbeUbLnn8VuSC8flWEZmmwwGg/exec";
+const modal = document.getElementById("partnerModal");
+document.getElementById("landingPartner").addEventListener("click", (e) => {
+  e.preventDefault();
+  document.getElementById("partnerText").value = "";
+  document.getElementById("partnerType").selectedIndex = 0;
+  modal.hidden = false;
+  document.getElementById("partnerText").focus();
+});
+document.getElementById("partnerClose").addEventListener("click", () => { modal.hidden = true; });
+modal.addEventListener("click", (e) => { if (e.target === modal) modal.hidden = true; });
+document.getElementById("partnerSubmit").addEventListener("click", async () => {
+  const text = document.getElementById("partnerText").value.trim();
+  if (!text) { document.getElementById("partnerText").focus(); return; }
+  const typeEl = document.getElementById("partnerType");
+  const typeLabel = typeEl.options[typeEl.selectedIndex].text;
+  const subject = "[모자이크 쇼핑 사업제휴 · " + typeLabel + "]";
+  const btn = document.getElementById("partnerSubmit");
+  btn.disabled = true; btn.textContent = "전송중...";
+  try {
+    await fetch(REPORT_URL, { method: "POST", body: JSON.stringify({ subject, body: text }), headers: { "Content-Type": "text/plain" } });
+    modal.hidden = true;
+    alert("전송되었습니다. 감사합니다!");
+  } catch (e) { alert("전송 실패 — 잠시 후 다시 시도해주세요."); }
+  btn.disabled = false; btn.textContent = "보내기";
 });
 </script>
 </body>
