@@ -1,7 +1,7 @@
 {
   "version": "2.1",
   "updated": "2026-04-13",
-  "iconBase": "http://arma94.godohosting.com/icon/",
+  "iconBase": "https://arma94-prog.github.io/mosaic-shopping/icon/",
   "_note": "placeholder는 {kw}. 아이콘은 events.json과 공통. isDefault=true는 카테고리별 디폴트. 쿠팡이 있는 카테고리는 쿠팡이 디폴트(수익원).",
   "_uncertain": ["auction", "brandi", "wconcept", "glowpick", "dongwonmall", "dolfarmer", "lge", "galleria", "hyundai", "cjthemarket", "nonghyup", "8dogam", "epost", "pirates", "himart", "samsung"],
   "categories": [
