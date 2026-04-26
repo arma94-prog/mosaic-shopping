@@ -1,0 +1,136 @@
+{
+  "version": "2.1",
+  "updated": "2026-04-13",
+  "iconBase": "http://arma94.godohosting.com/icon/",
+  "_note": "placeholder는 {kw}. 아이콘은 events.json과 공통. isDefault=true는 카테고리별 디폴트. 쿠팡이 있는 카테고리는 쿠팡이 디폴트(수익원).",
+  "_uncertain": ["auction", "brandi", "wconcept", "glowpick", "dongwonmall", "dolfarmer", "lge", "galleria", "hyundai", "cjthemarket", "nonghyup", "8dogam", "epost", "pirates", "himart", "samsung"],
+  "categories": [
+    {
+      "key": "digital",
+      "label": "가격비교",
+      "items": [
+        { "icon": "naver.png",   "name": "네이버 가격비교",   "url": "https://search.shopping.naver.com/search/all?query={kw}" },
+	{ "icon": "danawa.png", "name": "다나와", "url": "https://search.danawa.com/dsearch.php?query={kw}", "isDefault": true },
+        { "icon": "enuri.png", "name": "에누리", "url": "https://www.enuri.com/search.jsp?keyword={kw}" }
+      ]
+    },
+    {
+      "key": "general",
+      "label": "종합몰",
+      "items": [
+        { "icon": "naverstore.png",   "name": "네이버 스토어",   "url": "https://search.shopping.naver.com/ns/search?query={kw}" },
+	{ "icon": "coupang.png", "name": "쿠팡",     "url": "https://www.coupang.com/np/search?q={kw}", "isDefault": true },
+        { "icon": "gmarket.png", "name": "G마켓",    "url": "https://browse.gmarket.co.kr/search?keyword={kw}" },
+        { "icon": "ssg.png",     "name": "SSG",      "url": "https://www.ssg.com/search.ssg?target=all&query={kw}" },
+        { "icon": "11st.png",    "name": "11번가",   "url": "https://search.11st.co.kr/Search.tmall?kwd={kw}" },
+        { "icon": "lotteon.png",     "name": "롯데ON",      "url": "https://www.lotteon.com/csearch/search/search?render=search&platform=pc&q={kw}&mallId=1&sort=ranking" }
+      ]
+    },
+    {
+      "key": "fashion",
+      "label": "패션",
+      "items": [
+        { "icon": "musinsa.png",  "name": "무신사",    "url": "https://www.musinsa.com/search/musinsa/goods?q={kw}", "isDefault": true },
+        { "icon": "29cm.png",     "name": "29CM",      "url": "https://shop.29cm.co.kr/search?keyword={kw}" },
+        { "icon": "ably.png",     "name": "에이블리",  "url": "https://m.a-bly.com/search?screen_name=SEARCH_RESULT&keyword={kw}&search_type=RECENT" },
+        { "icon": "brandi.png",   "name": "브랜디",    "url": "https://www.brandi.co.kr/search?keyword={kw}" },
+        { "icon": "zigzag.png",   "name": "지그재그",  "url": "https://zigzag.kr/search?keyword={kw}" },
+        { "icon": "wconcept.png", "name": "W Concept", "url": "https://www.wconcept.co.kr/Search?kwd={kw}" }
+      ]
+    },
+    {
+      "key": "beauty",
+      "label": "뷰티·리빙",
+      "items": [
+        { "icon": "oliveyoung.png", "name": "올리브영",      "url": "https://www.oliveyoung.co.kr/store/search/getSearchMain.do?query={kw}", "isDefault": true },
+        { "icon": "zigzag.png",     "name": "지그재그 뷰티", "url": "https://zigzag.kr/search?keyword={kw}" },
+        { "icon": "ohou.png",       "name": "오늘의집",      "url": "https://ohou.se/productions/feed?query={kw}" },
+        { "icon": "ikea.png",       "name": "이케아",        "url": "https://www.ikea.com/kr/ko/search/?q={kw}" }
+      ]
+    },
+    {
+      "key": "department",
+      "label": "백화점",
+      "items": [
+        { "icon": "lotte.png",      "name": "롯데 백화점",     "url": "https://www.lotteon.com/search/search/search.ecn?render=search&q={kw}", "isDefault": true },
+        { "icon": "shinsaegae.png", "name": "신세계 백화점",   "url": "https://department.ssg.com/search.ssg?target=all&query={kw}" },
+        { "icon": "hyundai.png",    "name": "현대 백화점",     "url": "http://hi.thehyundai.com/search?tab=product&q={kw}&disPlaySize=36" },
+        { "icon": "galleria.png",   "name": "갤러리아", "url": "https://www.galleria.co.kr/p/search/search.jsp?keyword={kw}" }
+      ]
+    },
+    {
+      "key": "homeshopping",
+      "label": "홈쇼핑",
+      "items": [
+	{ "icon": "cjonstyle.png", "name": "CJ온스타일", "url": "https://display.cjonstyle.com/p/search/searchAllList?k={kw}&searchType=ALL" , "isDefault": true },      
+        { "icon": "hmall.png",   "name": "현대홈쇼핑", 	"url": "https://www.hmall.com/md/pde/search?gnbSearchYn=Y&requestPath=w&tab=all&searchTerm={kw}&csfDepth=&csfNameCode=&onnuriGcStlmYn=&searchType=normal&gaSearchType=%EC%A7%81%EC%A0%91%EC%9E%85%EB%A0%A5" },
+	{ "icon": "lotteimall.png",   "name": "롯데홈쇼핑",  "url": "https://www.lotteimall.com/search/searchMain.lotte?slog=00101_1&headerQuery={kw}" },
+	{ "icon": "gsshop.png", "name": "GS홈쇼핑",  "url" : "https://www.gsshop.com/shop/search/main.gs?tq={kw}" },
+	{ "icon": "gongyoung.png", "name": "공영홈쇼핑",  "url" : "https://www.gongyoungshop.kr/search/goodsSearch.do?kwd={kw}" }
+      ]
+    },
+    {
+      "key": "food",
+      "label": "푸드",
+      "items": [
+        { "icon": "emart.png",       "name": "이마트",     "url": "https://emart.ssg.com/search.ssg?target=all&query={kw}" },
+        { "icon": "kurly.png",       "name": "마켓컬리",       "url": "https://www.kurly.com/search?sword={kw}" },
+        { "icon": "oasis.png",       "name": "오아시스",   "url": "https://www.oasis.co.kr/search?search_word={kw}" },
+        { "icon": "cjthemarket.png", "name": "CJ더마켓",   "url": "https://www.cjthemarket.com/pc/search?beforeAction=%2Fpc%2Fsearch&sort=RANK&collection=ALL&range=A&searchAction=D&query={kw}" },
+        { "icon": "dongwonmall.png", "name": "동원몰",     "url": "https://www.dongwonmall.com/search/search.do?searchType=all&brandCd=&searchTermTopFull=&searchTermTop={kw}&tabs=on" }
+      ]
+    },
+    {
+      "key": "foreign",
+      "label": "직구",
+      "items": [
+        { "icon": "aliexpress.png", "name": "알리익스프레스", "url": "https://ko.aliexpress.com/w/wholesale-{kw}.html?spm=a2g0o.home.search.0", "isDefault": true },
+        { "icon": "temu.png",  "name": "테무", "url": "https://www.temu.com/search_result.html?search_key={kw}"},
+	{ "icon": "amazon.png",  "name": "아마존", "url": "https://www.amazon.com/s?k={kw}"},
+	{ "icon": "ebay.png",	"name": "이베이", "url": "https://www.ebay.com/sch/i.html?_nkw={kw}&_sacat=0&_from=R40&_trksid=m570.l1313" },
+	{ "icon": "iherb.png", "name": "iherb", "url": "https://kr.iherb.com/search?kw={kw}" }
+      ]
+    },
+    {
+      "key": "local",
+      "label": "산지제철",
+      "items": [
+        { "icon": "nonghyup.png", "name": "농협몰",         "url": "https://www.nonghyupmall.com/BC1F010M/srchTotalList.nh?searchTerm_main={kw}" },
+        { "icon": "8dogam.png",   "name": "팔도감",         "url": "https://8dogam.com/search?keyword={kw}" },
+        { "icon": "dolfarmer.png","name": "돌쇠네",         "url": "https://www.dolfarmer.com/Home/Search?sval={kw}" },
+        { "icon": "epost.png",    "name": "우체국",         "url": "https://mall.epost.go.kr/fo/search/search.do?searchTerm={kw}" },
+        { "icon": "pirates.png",  "name": "인어교주해적단", "url": "https://smartstore.naver.com/tpirates/search?q={kw}" }
+      ]
+    },
+    {
+      "key": "sns",
+      "label": "커뮤니티 핫딜",
+      "items": [
+        { "icon": "ppomppu.png", "name": "뽐뿌 게시판",         "url": "https://www.ppomppu.co.kr/zboard/zboard.php?search_type=sub_memo&id=ppomppu&page_num=20&keyword={kw}" },
+        { "icon": "algumon.png",   "name": "알구몬",         "url": "https://www.algumon.com/n/deal?keyword={kw}&period=1w" },
+        { "icon": "quasarzone.png","name": "퀘이사존 핫딜",         "url": "https://quasarzone.com/bbs/qb_saleinfo?_method=post&type=&page=1&_token=&category=&shop=&popularity=&kind=subject&keyword={kw}&sort=num%2C+reply&direction=DESC" },
+        { "icon": "ruliweb.png",    "name": "루리웹",         "url": "https://bbs.ruliweb.com/market/board/1020?search_type=subject&search_key={kw}" },
+        { "icon": "daangn.png",  "name": "당근", "url": "https://www.daangn.com/kr/buy-sell/s/?in=&search={kw}" }
+      ]
+    },
+    {
+      "key": "custom_search_4",
+      "label": "사용자 지정 #1",
+      "items": [
+      ]
+    },
+    {
+      "key": "custom_search_5",
+      "label": "사용자 지정 #2",
+      "items": [
+      ]
+    },
+    {
+      "key": "custom_search_6",
+      "label": "사용자 지정 #3",
+      "items": [
+      ]
+    }
+  ]
+}
+

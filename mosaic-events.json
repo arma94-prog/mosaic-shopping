@@ -1,0 +1,104 @@
+{
+  "version": "2.0",
+  "updated": "2026-04-12",
+  "iconBase": "http://arma94.godohosting.com/icon/",
+  "announcement": {
+    "id": "20260419",
+    "text": "쇼핑몰 아이콘 크기 조절 기능이 추가되었어요!",
+    "link": "",
+    "enabled": true
+  },
+  "categories": [
+    { "key": "general", "label": "종합몰",
+      "items": [
+        { "icon": "naver.png",   "name": "네이버 쇼핑 오늘끝딜",  "url": "https://shopping.naver.com/promotion/" },
+        { "icon": "coupang.png", "name": "쿠팡 골드박스",    "url": "https://link.coupang.com/a/esgfTK" },
+        { "icon": "gmarket.png", "name": "G마켓 슈퍼딜",   "url": "https://www.gmarket.co.kr/n/superdeal?spm=gmktpc.home.0.0.1fbf486aMR3syN" },
+        { "icon": "auction.png", "name": "옥션 올킬",    "url": "https://www.auction.co.kr/n/allkill" },
+	{ "icon": "ssg.png",     "name": "SSG 특가",    "url": "https://www.ssg.com/page/pc/SpecialPrice.ssg" },
+        { "icon": "11st.png",    "name": "11번가 쇼킹딜",  "url": "https://deal.11st.co.kr/browsing/DealAction.tmall?method=getShockingDealMain" }
+      ]},
+    { "key": "fashion", "label": "패션",
+      "items": [
+        { "icon": "musinsa.png", "name": "무신사 세일",   "url": "https://www.musinsa.com/main/musinsa/sale?gf=A" },
+        { "icon": "29cm.png",    "name": "29CM 이벤트",     "url": "https://www.29cm.co.kr/store/event" },
+        { "icon": "ably.png",    "name": "에이블리 패션", "url": "https://m.a-bly.com/" },
+	{ "icon": "brandi.png",    "name": "브랜디 세일", "url": "https://www.brandi.co.kr/timedeal" },
+        { "icon": "zigzag.png",  "name": "지그재그 패션", "url": "https://zigzag.kr/" },
+	{ "icon": "wconcept.png",    "name": "W Concept 세일", "url": "https://display.wconcept.co.kr/rn/sale?gnbType=Y" }
+      ]},
+    { "key": "beauty", "label": "뷰티",
+      "items": [
+        { "icon": "oliveyoung.png", "name": "올리브영 오특",     "url": "https://www.oliveyoung.co.kr/store/main/getHotdealList.do?t_page=%EB%9E%AD%ED%82%B9&t_click=GNB&t_gnb_type=%EC%98%A4%ED%8A%B9&t_swiping_type=N" },
+        { "icon": "glowpick.png","name": "글로우픽 이벤트","url": "https://www.glowpick.com/events" },
+	{ "icon": "musinsa.png",       "name": "무신사 뷰티 세일",     "url": "https://www.musinsa.com/main/beauty/sale" },
+	{ "icon": "ably.png",    "name": "에이블리 뷰티", "url": "https://m.a-bly.com/screens?screen_name=BEAUTY_DEPARTMENT" },
+	{ "icon": "kurly.png",       "name": "뷰티컬리 특가/혜택",       "url": "https://www.kurly.com/beauty-benefit" },
+	{ "icon": "zigzag.png",  "name": "지그재그 뷰티", "url": "https://zigzag.kr/categories/1100?title=%EC%A0%84%EC%B2%B4&category_id=1100&middle_category_id=1098" }
+      ]},
+   { "key": "department", "label": "백화점·리빙",
+      "items": [
+        { "icon": "lotte.png",      "name": "롯데백화점 롯리나잇 ",     "url": "https://www.lotteon.com/p/display/shop/seltDpShop/61320?mall_no=2" },
+        { "icon": "shinsaegae.png", "name": "신세계백화점 Deal",   "url": "https://department.ssg.com/page/pc/specialSale.ssg" },
+        { "icon": "hyundai.png",    "name": "현대백화점",     "url": "https://www.thehyundai.com/" },
+        { "icon": "galleria.png",   "name": "갤러리아 HOT PICK", "url": "https://www.galleria.co.kr/shop/initDealShop.action?galloc=COMMON_00_GNB&galloc_detail=HotPick" },
+      	{ "icon": "ohou.png",       "name": "오늘의집 오늘의딜",     "url": "https://store.ohou.se/today_deals" },
+	{ "icon": "ikea.png",       "name": "이케아 더 낮은 새로운가격",       "url": "https://www.ikea.com/kr/ko/cat/lower-price/" }
+      ]}, 
+   { "key": "food", "label": "푸드",
+      "items": [
+        { "icon": "emart.png",       "name": "이마트 오반장",   "url": "https://emart.ssg.com/page/pc/obanjang.ssg" },
+        { "icon": "kurly.png",       "name": "컬리 세일",     "url": "https://www.kurly.com/collection-groups/market-sales-group?site=MARKET&page=1&collection=market-sales-main1" },
+        { "icon": "oasis.png",       "name": "오아시스 오늘의특가", "url": "https://www.oasis.co.kr/product/special?specialGroup=TIME_SALE&limit=200" },
+        { "icon": "cjthemarket.png", "name": "CJ더마켓 핫딜", "url": "https://www.cjthemarket.com/the/product/hotdeal-product-list" },
+	{ "icon": "coupang.png",     "name": "로켓프레시 한정특가",    "url": "https://link.coupang.com/a/esgrIw" },
+	{ "icon": "dongwonmall.png",     "name": "동원몰 디데이딜",    "url": "https://www.dongwonmall.com/display/dDayDeal.do" }
+      ]},
+    { "key": "local", "label": "산지제철",
+      "items": [
+        { "icon": "naver.png",    "name": "네이버 산지제철", "url": "https://shopping.naver.com/fresh/directfarm/home" },
+        { "icon": "nonghyup.png", "name": "농협몰 추천특가",     "url": "https://www.nonghyupmall.com/BC39010R/weeklyList.nh" },
+	{ "icon": "8dogam.png",   "name": "팔도감 특가",     "url": "https://8dogam.com/?tab=deals" },
+        { "icon": "dolfarmer.png",   "name": "돌쇠네 농산물",     "url": "https://www.dolfarmer.com/" },
+	{ "icon": "epost.png",    "name": "우체국 오늘의특가",     "url": "https://mall.epost.go.kr/fo/event/retrieveSpecialPrice.do" },
+        { "icon": "pirates.png",  "name": "인어교주해적단 제철",     "url": "https://smartstore.naver.com/tpirates/category/0608c3f9e33d476cb18aeff8043528a0?cp=1" }
+       ]},
+    { "key": "digital", "label": "디지털",
+      "items": [
+        { "icon": "coupang.png",   "name": "쿠팡 금주의 기획전",   "url": "https://www.coupang.com/np/campaigns/23459" },
+        { "icon": "gmarket.png", "name": "G마켓 슈퍼딜 디지털",   "url": "https://www.gmarket.co.kr/n/superdeal?categoryCode=400000149&spm=gmktpc.superdealhome.0.0.36767ecfSLOVAg" },
+	{ "icon": "compuzone.png","name": "컴퓨존 파격할인",   "url": "https://www.compuzone.co.kr/hotsale/hotsale.htm?bannerid=GNBBannerHotsale" },
+        { "icon": "himart.png",   "name": "하이마트", "url": "https://www.e-himart.co.kr/app/display/main" },
+        { "icon": "samsung.png",  "name": "삼성닷컴 이달의추천", "url": "https://www.samsung.com/sec/shop/" },
+        { "icon": "lge.png",    "name": "LG전자 타임딜",     "url": "https://www.lge.co.kr/benefits/exhibitions/detail-PE00385001" }
+      ]},
+    { "key": "sns", "label": "커뮤니티 핫딜",
+      "items": [
+        { "icon": "ppomppu.png",    "name": "뽐뿌",     "url": "https://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu" },
+	{ "icon": "thegoo.png",	 "name": "더쿠 덬딜",	"url": "https://theqoo.net/theqdeal?filter_mode=hot"	},
+      	{ "icon": "algumon.png",    "name": "알구몬",   "url": "https://www.algumon.com/" },
+        { "icon": "quasarzone.png", "name": "퀘이사존 핫딜", "url": "https://quasarzone.com/bbs/qb_saleinfo" },
+        { "icon": "ruliweb.png",    "name": "루리웹 핫딜",   "url": "https://bbs.ruliweb.com/market/board/1020" },
+        { "icon": "eomisae.png",    "name": "어미새 쇼핑정보",   "url": "https://eomisae.co.kr/fs" }
+      ]},
+   { "key": "foreign", "label": "직구",
+      "items": [
+	{ "icon": "amazon.png",   "name": "아마존 오늘의 딜", "url": "https://www.amazon.com/-/ko/gp/goldbox?ref_=nav_cs_gb" },
+        { "icon": "ebay.png",	"name": "이베이 특가",	"url": "https://www.ebay.com/globaldeals" },
+	{ "icon": "ppomppu.png",    "name": "해외 뽐뿌",     "url": "https://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu4" },
+	{ "icon": "malltail.png",    "name": "몰테일 핫딜",     "url": "https://post.malltail.com/hotdeals/index" },
+        { "icon": "aliexpress.png",    "name": "알리익스페스 직구핫딜",  "url": "https://www.aliexpress.com/ssr/300002660/Deals-HomePage" },
+	{ "icon": "iherb.png",    "name": "아이허브 특가",     "url": "https://kr.iherb.com/deals" }
+      ]},
+   { "key": "custom_event_1", "label": "사용자 지정 #1",
+      "items": [ 
+      ]},
+   { "key": "custom_event_2", "label": "사용자 지정 #2",
+      "items": [
+      ]},
+   { "key": "custom_event_3", "label": "사용자 지정 #3",
+      "items": [
+      ]}
+
+  ]
+}
