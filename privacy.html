@@ -3,688 +3,280 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>모자이크 쇼핑 - 개인정보 처리방침</title>
-  <meta name="description" content="모자이크 쇼핑 Chrome 확장 프로그램의 개인정보 처리방침 v0.2" />
-  <meta name="robots" content="index, follow" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="모자이크 쇼핑 - 개인정보 처리방침" />
-  <meta property="og:description" content="모자이크 쇼핑 Chrome 확장 프로그램의 개인정보 처리방침 v0.2" />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="ko_KR" />
-
-  <!-- Pretendard 한국어 폰트 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
-
+  <title>모자이크 쇼핑 개인정보 처리방침</title>
   <style>
     :root {
-      /* 모자이크 브랜드 컬러 (옵션 페이지와 일치) */
-      --orange: #e8762b;
-      --orange-soft: #f4a05f;
-      --yellow: #f4d443;
-      --beige: #f0ede4;
-      --beige-soft: #f7f5ee;
-      --white: #ffffff;
-      --ink: #1a1a1a;
-      --ink-soft: #555555;
-      --ink-faint: #888888;
-      --line: #e6e1d0;
-      --line-soft: #efeae0;
-
-      /* 시스템 변수 */
-      --bg: var(--beige-soft);
-      --surface: var(--white);
-      --text: var(--ink);
-      --text-soft: var(--ink-soft);
-      --text-faint: var(--ink-faint);
-      --border: var(--line);
-      --accent: var(--orange);
-
-      /* 타이포그래피 */
-      --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", sans-serif;
-      --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      --bg: #ffffff;
+      --fg: #1a1a1a;
+      --muted: #666;
+      --line: #e5e5e5;
+      --accent: #2563eb;
+      --code-bg: #f5f5f5;
+      --quote-bg: #f9fafb;
+      --quote-border: #d1d5db;
     }
-
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #1a1816;
-        --surface: #232020;
-        --text: #f5f1e8;
-        --text-soft: #c8c0b0;
-        --text-faint: #908878;
-        --border: #3a342c;
-        --line-soft: #2c2926;
+        --bg: #0f1419;
+        --fg: #e5e7eb;
+        --muted: #9ca3af;
+        --line: #374151;
+        --accent: #60a5fa;
+        --code-bg: #1f2937;
+        --quote-bg: #1a202c;
+        --quote-border: #4b5563;
       }
     }
-
     * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-
     body {
-      margin: 0;
-      font-family: var(--font-sans);
-      font-weight: 400;
-      font-feature-settings: "ss01", "ss02";
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
+                   "Malgun Gothic", "맑은 고딕", sans-serif;
       background: var(--bg);
-      color: var(--text);
+      color: var(--fg);
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px 20px 80px;
       line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* ===== HEADER ===== */
-    .site-header {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 24px 24px 32px;
-    }
-
-    .header-inner {
-      max-width: 880px;
-      margin: 0 auto;
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-    }
-
-    .logo {
-      flex-shrink: 0;
-      width: 56px;
-      height: 56px;
-      border-radius: 12px;
-    }
-
-    .header-text h1 {
-      margin: 0 0 6px;
-      font-size: clamp(24px, 4vw, 32px);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-    }
-
-    .header-text .site-name {
-      font-size: 14px;
-      color: var(--text-soft);
-      font-weight: 500;
-      margin-bottom: 4px;
-    }
-
-    .meta-badges {
-      margin-top: 12px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-
-    .badge-version {
-      background: var(--orange);
-      color: var(--white);
-    }
-
-    .badge-beta {
-      background: var(--yellow);
-      color: var(--ink);
-    }
-
-    .badge-date {
-      background: var(--beige);
-      color: var(--ink-soft);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      .badge-date {
-        background: var(--line-soft);
-        color: var(--text-soft);
-      }
-    }
-
-    /* ===== LAYOUT ===== */
-    .layout {
-      max-width: 880px;
-      margin: 0 auto;
-      padding: 32px 24px 64px;
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 48px;
-    }
-
-    @media (max-width: 768px) {
-      .layout {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        padding: 16px 16px 48px;
-      }
-    }
-
-    /* ===== TOC ===== */
-    .toc {
-      position: sticky;
-      top: 24px;
-      align-self: start;
-      font-size: 13px;
-    }
-
-    .toc-title {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-faint);
-      margin-bottom: 12px;
-      padding-left: 12px;
-    }
-
-    .toc ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .toc li { margin: 0; }
-
-    .toc a {
-      display: block;
-      padding: 8px 12px;
-      color: var(--text-soft);
-      text-decoration: none;
-      border-left: 2px solid transparent;
-      transition: all 0.15s ease;
-      line-height: 1.4;
-    }
-
-    .toc a:hover {
-      color: var(--accent);
-      border-left-color: var(--accent);
-      background: var(--surface);
-    }
-
-    @media (max-width: 768px) {
-      .toc {
-        position: static;
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        background: var(--surface);
-        padding: 16px;
-        margin-bottom: 24px;
-      }
-      .toc-title { padding-left: 0; }
-      .toc ul {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4px;
-      }
-      .toc a {
-        padding: 6px 8px;
-        border-left: none;
-        font-size: 12px;
-      }
-      .toc a:hover { background: var(--bg); }
-    }
-
-    /* ===== MAIN ===== */
-    main {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 40px 48px;
-    }
-
-    @media (max-width: 768px) {
-      main { padding: 24px 20px; border-radius: 10px; }
-    }
-
-    .lead {
       font-size: 15px;
-      color: var(--text-soft);
-      padding: 16px 20px;
-      background: var(--beige-soft);
-      border-left: 3px solid var(--accent);
-      border-radius: 4px;
-      margin: 0 0 32px;
+      -webkit-text-size-adjust: 100%;
     }
-
-    @media (prefers-color-scheme: dark) {
-      .lead { background: var(--line-soft); }
-    }
-
+    h1 { font-size: 26px; margin: 0 0 8px; }
     h2 {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      margin: 48px 0 20px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border);
-      scroll-margin-top: 80px;
-    }
-
-    h2:first-of-type { margin-top: 0; }
-
-    h3 {
-      font-size: 17px;
-      font-weight: 600;
+      font-size: 19px;
       margin: 32px 0 12px;
-      color: var(--text);
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
     }
-
-    p {
-      margin: 0 0 16px;
-      font-size: 15px;
-      color: var(--text);
-    }
-
-    p strong { font-weight: 600; }
-
-    /* ===== TABLES ===== */
-    .tbl-wrap {
-      overflow-x: auto;
-      margin: 16px 0 24px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-    }
-
-    thead {
-      background: var(--beige);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      thead { background: var(--line-soft); }
-    }
-
-    th {
-      text-align: left;
-      padding: 12px 16px;
-      font-weight: 600;
-      color: var(--text);
-      border-bottom: 1px solid var(--border);
-      white-space: nowrap;
-    }
-
-    td {
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--line-soft);
-      vertical-align: top;
-      color: var(--text);
-    }
-
-    tr:last-child td { border-bottom: none; }
-
-    /* ===== CALLOUT ===== */
-    .callout {
-      margin: 16px 0 24px;
-      padding: 14px 18px;
-      background: var(--beige-soft);
-      border-radius: 6px;
-      font-size: 14px;
-      color: var(--text-soft);
-      line-height: 1.6;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      .callout { background: var(--line-soft); }
-    }
-
-    .callout strong { color: var(--text); }
-
-    /* ===== ORDERED LIST ===== */
-    .step-list {
-      counter-reset: step;
-      list-style: none;
-      padding: 0;
-      margin: 16px 0 24px;
-    }
-
-    .step-list li {
-      counter-increment: step;
-      position: relative;
-      padding: 8px 0 8px 36px;
-      font-size: 15px;
-    }
-
-    .step-list li::before {
-      content: counter(step);
-      position: absolute;
-      left: 0;
-      top: 8px;
-      width: 24px;
-      height: 24px;
-      background: var(--accent);
-      color: var(--white);
-      border-radius: 50%;
-      font-size: 12px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* ===== APPENDIX ===== */
-    ul.appendix {
-      padding-left: 0;
-      list-style: none;
-    }
-
-    ul.appendix li {
-      padding: 6px 0 6px 24px;
-      position: relative;
-      font-size: 15px;
-    }
-
-    ul.appendix li::before {
-      content: "→";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    /* ===== LINK ===== */
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.15s ease;
-    }
-
-    a:hover { border-bottom-color: var(--accent); }
-
-    code {
-      font-family: var(--font-mono);
-      background: var(--beige);
-      padding: 1px 6px;
+    h3 { font-size: 16px; margin: 20px 0 8px; }
+    p, li { font-size: 15px; }
+    ul, ol { padding-left: 22px; }
+    li { margin-bottom: 4px; }
+    blockquote {
+      margin: 12px 0;
+      padding: 10px 14px;
+      background: var(--quote-bg);
+      border-left: 3px solid var(--quote-border);
+      color: var(--muted);
       border-radius: 4px;
-      font-size: 0.92em;
+      font-size: 14px;
     }
-
-    @media (prefers-color-scheme: dark) {
-      code { background: var(--line-soft); }
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      max-width: 880px;
-      margin: 0 auto;
-      padding: 32px 24px 48px;
-      border-top: 1px solid var(--border);
+    blockquote p { margin: 4px 0; }
+    code {
+      background: var(--code-bg);
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-family: ui-monospace, "SF Mono", Consolas, monospace;
       font-size: 13px;
-      color: var(--text-faint);
-      text-align: center;
     }
-
-    footer a { color: var(--text-soft); }
-
-    .footer-row {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      flex-wrap: wrap;
-      margin-top: 8px;
+    a { color: var(--accent); text-decoration: none; word-break: break-all; }
+    a:hover { text-decoration: underline; }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 12px 0;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: var(--quote-bg);
+      font-weight: 600;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    .meta strong { color: var(--fg); }
+    hr {
+      border: none;
+      border-top: 1px solid var(--line);
+      margin: 32px 0;
+    }
+    @media (max-width: 480px) {
+      body { padding: 20px 14px 60px; font-size: 14px; }
+      h1 { font-size: 22px; }
+      h2 { font-size: 17px; }
+      table { font-size: 13px; }
+      th, td { padding: 6px 8px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ============ HEADER ============ -->
-  <header class="site-header">
-    <div class="header-inner">
-      <svg class="logo" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" aria-label="모자이크 쇼핑 로고">
-        <rect width="72" height="72" rx="12" fill="#F0EDE4"/>
-        <rect x="4" y="4" width="19" height="19" rx="3" fill="#f4d443"/>
-        <rect x="26" y="4" width="19" height="19" rx="3" fill="#ffffff" stroke="#e6e1d0"/>
-        <rect x="49" y="4" width="19" height="19" rx="3" fill="#e8762b"/>
-        <rect x="4" y="26" width="19" height="19" rx="3" fill="#ffffff" stroke="#e6e1d0"/>
-        <rect x="26" y="26" width="19" height="19" rx="3" fill="#e8762b"/>
-        <rect x="49" y="26" width="19" height="19" rx="3" fill="#f4d443"/>
-        <rect x="4" y="49" width="19" height="19" rx="3" fill="#e8762b"/>
-        <rect x="26" y="49" width="19" height="19" rx="3" fill="#f4d443"/>
-        <rect x="49" y="49" width="19" height="19" rx="3" fill="#fff5e6"/>
-      </svg>
-      <div class="header-text">
-        <div class="site-name">모자이크 쇼핑</div>
-        <h1>개인정보 처리방침</h1>
-        <div class="meta-badges">
-          <span class="badge badge-version">v0.2</span>
-          <span class="badge badge-beta">BETA</span>
-          <span class="badge badge-date">시행일 2026-04-26</span>
-        </div>
-      </div>
-    </div>
-  </header>
+<h1>모자이크 쇼핑 개인정보 처리방침</h1>
 
-  <!-- ============ LAYOUT ============ -->
-  <div class="layout">
+<p class="meta">
+  <strong>버전:</strong> v0.3 (베타) &nbsp;·&nbsp;
+  <strong>시행일:</strong> 2026-04-27 &nbsp;·&nbsp;
+  <strong>최종 수정일:</strong> 2026-04-27
+</p>
 
-    <!-- TOC -->
-    <aside class="toc">
-      <div class="toc-title">목차</div>
-      <ul>
-        <li><a href="#sec1">1. 개인정보 처리자</a></li>
-        <li><a href="#sec2">2. 수집하는 정보</a></li>
-        <li><a href="#sec3">3. 저장 위치</a></li>
-        <li><a href="#sec4">4. 사용자 권리</a></li>
-        <li><a href="#sec5">5. 제3자 제공·위탁</a></li>
-        <li><a href="#sec6">6. 변경 이력</a></li>
-        <li><a href="#sec7">7. 문의</a></li>
-        <li><a href="#appendix">부록 — Phase 2 예정</a></li>
-      </ul>
-    </aside>
+<blockquote>
+  이 문서는 모자이크 쇼핑 Chrome 확장 프로그램(이하 "본 확장")이 사용자의 개인정보를 어떻게 처리하는지 설명합니다. 본 확장을 사용함으로써 사용자는 본 처리방침의 내용에 동의하는 것으로 간주됩니다.
+</blockquote>
 
-    <!-- MAIN -->
-    <main>
+<h2>1. 개인정보 처리자</h2>
 
-      <p class="lead">
-        이 문서는 모자이크 쇼핑 Chrome 확장 프로그램(이하 "본 확장")이 사용자의 개인정보를 어떻게 처리하는지 설명합니다. 본 확장을 사용함으로써 사용자는 본 처리방침의 내용에 동의하는 것으로 간주됩니다.
-      </p>
+<table>
+  <tr><th>항목</th><th>내용</th></tr>
+  <tr><td><strong>처리자</strong></td><td>신우영 (개인 개발자)</td></tr>
+  <tr><td><strong>소재지</strong></td><td>대한민국 경기도 성남시</td></tr>
+  <tr><td><strong>연락처</strong></td><td><a href="mailto:arma94@gmail.com">arma94@gmail.com</a></td></tr>
+  <tr><td><strong>본 확장의 식별자</strong></td><td>Chrome Web Store 확장 프로그램 ID <code>dcahglbikffibgfldgjhfigabknkbnlb</code></td></tr>
+</table>
 
-      <!-- ============ 1. 처리자 ============ -->
-      <h2 id="sec1">1. 개인정보 처리자</h2>
+<blockquote>본 확장은 1인 개발자의 개인 명의로 운영되는 베타 서비스입니다. 향후 사업자 등록 시 본 항목이 갱신될 수 있으며, 갱신 사항은 본 문서 상단의 "버전" 및 "최종 수정일"로 표시됩니다.</blockquote>
 
-      <div class="tbl-wrap">
-        <table>
-          <tbody>
-            <tr><th>처리자</th><td>신우영 (개인 개발자)</td></tr>
-            <tr><th>소재지</th><td>대한민국 경기도 성남시</td></tr>
-            <tr><th>연락처</th><td><a href="mailto:arma94@gmail.com">arma94@gmail.com</a></td></tr>
-            <tr><th>본 확장의 식별자</th><td><code>dcahglbikffibgfldgjhfigabknkbnlb</code></td></tr>
-          </tbody>
-        </table>
-      </div>
+<h2>2. 수집하는 개인정보 항목과 이용 목적</h2>
 
-      <div class="callout">
-        본 확장은 1인 개발자의 개인 명의로 운영되는 베타 서비스입니다. 향후 사업자 등록 시 본 항목이 갱신될 수 있으며, 갱신 사항은 본 문서 상단의 <strong>버전</strong> 및 <strong>최종 수정일</strong>로 표시됩니다.
-      </div>
+<p>본 확장은 <strong>사용자가 'Google 계정 연결'에 명시적으로 동의한 경우에만</strong> 다음 정보를 수집·처리합니다. 미연결 상태에서는 모든 데이터가 사용자의 로컬 Chrome에만 저장됩니다.</p>
 
-      <!-- ============ 2. 수집 항목 ============ -->
-      <h2 id="sec2">2. 수집하는 개인정보 항목과 이용 목적</h2>
+<h3>2.1 Google 계정 정보 (OAuth)</h3>
 
-      <p>본 확장은 <strong>사용자가 'Google 계정 연결'에 명시적으로 동의한 경우에만</strong> 다음 정보를 수집·처리합니다. 미연결 상태에서는 모든 데이터가 사용자의 로컬 Chrome에만 저장됩니다.</p>
+<table>
+  <tr><th>항목</th><th>출처</th><th>이용 목적</th><th>보유 기간</th></tr>
+  <tr><td><strong>이메일 주소</strong></td><td>Google OAuth</td><td>본인 식별, 알림 이메일 발송</td><td>연결 해제 시까지</td></tr>
+  <tr><td><strong>사용자 ID(sub)</strong></td><td>Google OAuth</td><td>본인 데이터 식별 (내부 키)</td><td>연결 해제 시까지</td></tr>
+</table>
 
-      <h3>2.1 Google 계정 정보 (OAuth)</h3>
-      <div class="tbl-wrap">
-        <table>
-          <thead><tr><th>항목</th><th>출처</th><th>이용 목적</th><th>보유 기간</th></tr></thead>
-          <tbody>
-            <tr><td><strong>이메일 주소</strong></td><td>Google OAuth</td><td>본인 식별, 알림 이메일 발송</td><td>연결 해제 시까지</td></tr>
-            <tr><td><strong>사용자 ID(sub)</strong></td><td>Google OAuth</td><td>본인 데이터 식별 (내부 키)</td><td>연결 해제 시까지</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="callout">Google 프로필 사진, 이름 등은 수집하지 않습니다.</div>
+<blockquote>Google 프로필 사진, 이름 등은 수집하지 않습니다.</blockquote>
 
-      <h3>2.2 사용자가 본 확장에 저장한 데이터의 미러 사본</h3>
-      <p>본 확장의 PC 버전에서 사용자가 직접 추가/수정한 다음 데이터가 본인 식별자와 함께 클라우드에 미러링됩니다. <strong>목적은 모바일에서의 동일 데이터 조회입니다.</strong></p>
-      <div class="tbl-wrap">
-        <table>
-          <thead><tr><th>항목</th><th>이용 목적</th><th>보유 기간</th></tr></thead>
-          <tbody>
-            <tr><td>북마크 그룹 (검색어, 핀고정 여부, 그룹 단위 목표가, 목표가 달성 여부)</td><td>모바일 조회·정렬</td><td>연결 해제 시까지</td></tr>
-            <tr><td>북마크 항목 (제목, URL, 그룹, 썸네일, 현재가)</td><td>모바일 조회</td><td>연결 해제 시까지</td></tr>
-            <tr><td>키워드 (핀고정 검색어)</td><td>모바일 조회</td><td>연결 해제 시까지</td></tr>
-            <tr><td>가격 변동 이력</td><td>추세 표시 (Phase 2 추가 예정)</td><td>자동 14일 후 삭제</td></tr>
-            <tr><td>알림 발송 기록</td><td>중복 발송 방지 (Phase 2 추가 예정)</td><td>자동 90일 후 삭제</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="callout">
-        v0.2 시점(v1.24.1)의 실제 미러 항목은 <strong>북마크 그룹 + 북마크 항목 + 핀고정 키워드</strong> 3종입니다. 가격 변동 이력 / 알림 발송 기록은 Phase 2에서 Edge Function 작업 완료 시 추가 예정이며, 추가 시점에 처리방침을 갱신합니다.
-      </div>
+<h3>2.2 사용자가 본 확장에 저장한 데이터의 미러 사본</h3>
 
-      <h3>2.3 기술적 메타데이터</h3>
-      <div class="tbl-wrap">
-        <table>
-          <thead><tr><th>항목</th><th>이용 목적</th><th>보유 기간</th></tr></thead>
-          <tbody>
-            <tr><td>OS, 브라우저 로케일, 본 확장 버전</td><td>호환성 분석, 버그 디버깅</td><td>연결 해제 시까지</td></tr>
-            <tr><td>마지막 동기화 시각</td><td>동기화 상태 표시</td><td>연결 해제 시까지</td></tr>
-          </tbody>
-        </table>
-      </div>
+<p>본 확장의 PC 버전에서 사용자가 직접 추가/수정한 다음 데이터가 본인 식별자와 함께 클라우드에 미러링됩니다. <strong>목적은 모바일에서의 동일 데이터 조회입니다.</strong></p>
 
-      <h3>2.4 행동 분석 데이터 (Mixpanel)</h3>
-      <p>본 확장은 익명화된 행동 로그를 Mixpanel(미국 소재)을 통해 분석합니다. 이 분석은 Google 계정 연결 여부와 무관하게 본 확장의 모든 사용자에게 기본 적용됩니다.</p>
-      <div class="tbl-wrap">
-        <table>
-          <thead><tr><th>항목</th><th>이용 목적</th><th>보유 기간</th></tr></thead>
-          <tbody>
-            <tr><td>검색/북마크/클릭 이벤트 로그</td><td>기능 개선, 사용 패턴 분석</td><td>Mixpanel 정책에 따름</td></tr>
-            <tr><td>익명 ID(distinct_id)</td><td>동일 사용자 세션 연결</td><td>Mixpanel 정책에 따름</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="callout">
-        행동 분석 데이터에는 <strong>검색어 원문이 포함됩니다</strong> (예: "에어팟"). 다만 사용자의 이메일/이름/주소 등 직접 식별자는 포함하지 않습니다. Mixpanel은 분석 목적으로만 사용되며, 광고나 제3자 마케팅 목적으로 활용되지 않습니다.
-      </div>
+<table>
+  <tr><th>항목</th><th>이용 목적</th><th>보유 기간</th></tr>
+  <tr><td>북마크 그룹 (검색어, 핀고정 여부, 그룹 단위 목표가, 목표가 달성 여부)</td><td>모바일 조회·정렬</td><td>연결 해제 시까지</td></tr>
+  <tr><td>북마크 항목 (제목, URL, 그룹, 썸네일, 현재가)</td><td>모바일 조회</td><td>연결 해제 시까지</td></tr>
+  <tr><td>키워드 (핀고정 검색어)</td><td>모바일 조회</td><td>연결 해제 시까지</td></tr>
+  <tr><td>검색 이력 (최근 검색어, 검색 시각, 최대 50개)</td><td>모바일에서 PC 검색 이력 표시</td><td>연결 해제 시까지</td></tr>
+  <tr><td>사용자 환경설정 — 사용자가 추가한 이벤트/검색 사이트, 카테고리/사이트별 ON/OFF 토글, 카테고리 이름 변경, 디폴트 검색몰</td><td>모바일에서 동일한 사이트 구성 표시</td><td>연결 해제 시까지</td></tr>
+  <tr><td>가격 변동 이력</td><td>추세 표시 (Phase 2 추가 예정)</td><td>자동 14일 후 삭제</td></tr>
+  <tr><td>알림 발송 기록</td><td>중복 발송 방지 (Phase 2 추가 예정)</td><td>자동 90일 후 삭제</td></tr>
+</table>
 
-      <h3>2.5 쿠팡 파트너스 어필리에이트 변환</h3>
-      <p>본 확장은 쿠팡 상품 URL을 어필리에이트 추적이 가능한 단축 URL로 변환합니다. 이 과정에서 사용자의 식별 정보는 쿠팡에 전송되지 않으며, <strong>상품 URL만 변환 목적으로 일시 처리</strong>됩니다.</p>
-      <div class="tbl-wrap">
-        <table>
-          <thead><tr><th>항목</th><th>처리 방식</th></tr></thead>
-          <tbody>
-            <tr><td>변환 대상 URL</td><td>Supabase Edge Function 서버에 24시간 익명 캐시 (사용자 ID 미저장)</td></tr>
-            <tr><td>변환된 URL 클릭 시</td><td>쿠팡 서버가 클릭을 카운트 (본 확장의 어필리에이트 ID로 귀속)</td></tr>
-          </tbody>
-        </table>
-      </div>
+<blockquote>
+  <p>v0.3 시점(v1.24.2)의 실제 미러 항목은 <strong>북마크 그룹 + 북마크 항목 + 핀고정 키워드 + 검색 이력 + 사용자 환경설정</strong> 5종입니다. 가격 변동 이력 / 알림 발송 기록은 Phase 2에서 Edge Function 작업 완료 시 추가 예정이며, 추가 시점에 처리방침을 갱신합니다.</p>
+  <p><strong>사용자 환경설정에 대한 보충</strong>: 본 항목은 사용자가 옵션 페이지에서 직접 만든 설정값(예: "내가 추가한 쇼핑몰", "패션 카테고리 끄기")만 미러링하며, 본 확장이 기본 제공하는 사이트 목록은 모든 사용자에게 동일한 공개 데이터로 별도 수집하지 않습니다.</p>
+</blockquote>
 
-      <!-- ============ 3. 저장 위치 ============ -->
-      <h2 id="sec3">3. 개인정보의 저장 위치</h2>
-      <div class="tbl-wrap">
-        <table>
-          <thead><tr><th>데이터</th><th>저장 위치</th><th>운영 주체</th><th>데이터 센터</th></tr></thead>
-          <tbody>
-            <tr><td>클라우드 미러 데이터 (2.2, 2.3)</td><td>Supabase</td><td>Supabase Inc. (미국)</td><td>일본 도쿄 리전</td></tr>
-            <tr><td>인증 토큰 (사용자 PC 측)</td><td>Chrome <code>chrome.storage.local</code></td><td>Google (사용자 본인)</td><td>사용자 PC</td></tr>
-            <tr><td>행동 분석 데이터 (2.4)</td><td>Mixpanel</td><td>Mixpanel Inc. (미국)</td><td>미국 (기본)</td></tr>
-            <tr><td>동의어 사전 / 이벤트 메타데이터</td><td>godohosting.com</td><td>Arma94 호스팅 계정</td><td>대한민국</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="callout">
-        클라우드 미러 데이터는 <strong>PostgreSQL의 Row Level Security 기능</strong>을 통해 본인만 조회 가능하도록 보호됩니다.
-      </div>
+<h3>2.3 기술적 메타데이터</h3>
 
-      <!-- ============ 4. 사용자 권리 ============ -->
-      <h2 id="sec4">4. 사용자 권리와 행사 방법</h2>
+<table>
+  <tr><th>항목</th><th>이용 목적</th><th>보유 기간</th></tr>
+  <tr><td>OS, 브라우저 로케일, 본 확장 버전</td><td>호환성 분석, 버그 디버깅</td><td>연결 해제 시까지</td></tr>
+  <tr><td>마지막 동기화 시각</td><td>동기화 상태 표시</td><td>연결 해제 시까지</td></tr>
+</table>
 
-      <h3>4.1 동의 철회 / 데이터 삭제 (v0.2에서 즉시 삭제로 갱신)</h3>
-      <p>옵션 페이지의 <strong>"연결 해제"</strong> 버튼을 클릭하면, 다음이 <strong>순차적으로 즉시 실행</strong>됩니다:</p>
-      <ol class="step-list">
-        <li><strong>클라우드(Supabase)에 저장된 본인의 모든 미러 데이터 삭제</strong> — 북마크 그룹, 북마크 항목, 핀고정 키워드.</li>
-        <li><strong>Supabase 측 인증 세션 종료</strong> — 발급된 토큰 무효화.</li>
-        <li><strong>PC의 인증 토큰 삭제</strong> — 더 이상 클라우드 호출 불가.</li>
-      </ol>
-      <div class="callout">
-        v0.1에서 약속했던 "다음 업데이트(v1.24.x)에서 즉시 삭제"는 본 v0.2(v1.24.1)에서 구현되었습니다.
-      </div>
-      <p><strong>예외 처리</strong>: 1단계가 네트워크 오류 등으로 실패한 경우에도 2-3단계는 진행됩니다(토큰 끊기 자체는 무조건 성공). 1단계 실패 시 클라우드 데이터가 남을 수 있으므로, 인터넷 환경 복구 후 재연결 → 재해제 또는 <a href="mailto:arma94@gmail.com">arma94@gmail.com</a>으로 메일 주시면 3영업일 내 수동 처리합니다.</p>
+<h3>2.4 행동 분석 데이터 (Mixpanel)</h3>
 
-      <h3>4.2 데이터 열람 / 정정</h3>
-      <p>본 확장의 사이드 패널에서 직접 본인 북마크/키워드를 열람·정정·삭제할 수 있습니다. 추가 정보 열람을 원하실 경우 위 이메일로 연락 부탁드립니다.</p>
+<p>본 확장은 익명화된 행동 로그를 Mixpanel(미국 소재)을 통해 분석합니다. 이 분석은 Google 계정 연결 여부와 무관하게 본 확장의 모든 사용자에게 기본 적용됩니다.</p>
 
-      <h3>4.3 행동 분석 거부</h3>
-      <p>Mixpanel 행동 분석은 현재 별도 거부(opt-out) UI가 제공되지 않습니다. 거부를 원하실 경우 본 확장 사용을 중단해주시기 바랍니다. Phase 2에서 거부 토글 추가 예정.</p>
+<table>
+  <tr><th>항목</th><th>이용 목적</th><th>보유 기간</th></tr>
+  <tr><td>검색/북마크/클릭 이벤트 로그</td><td>기능 개선, 사용 패턴 분석</td><td>Mixpanel 정책에 따름</td></tr>
+  <tr><td>익명 ID(distinct_id)</td><td>동일 사용자 세션 연결</td><td>Mixpanel 정책에 따름</td></tr>
+</table>
 
-      <!-- ============ 5. 제3자 제공·위탁 ============ -->
-      <h2 id="sec5">5. 제3자 제공 / 위탁</h2>
-      <p>본 확장은 <strong>광고주를 포함한 어떤 제3자에게도</strong> 사용자의 개인정보를 판매·제공·공유하지 않습니다.</p>
-      <p>다만, 본 확장의 운영을 위해 다음 처리위탁이 발생합니다:</p>
-      <div class="tbl-wrap">
-        <table>
-          <thead><tr><th>위탁업체</th><th>위탁 업무</th><th>처리 항목</th></tr></thead>
-          <tbody>
-            <tr><td>Supabase Inc.</td><td>데이터 저장, 인증</td><td>2.1, 2.2, 2.3 항목</td></tr>
-            <tr><td>Google LLC</td><td>OAuth 인증</td><td>이메일, 사용자 ID</td></tr>
-            <tr><td>Mixpanel Inc.</td><td>행동 분석</td><td>2.4 항목</td></tr>
-            <tr><td>Resend (또는 동급 서비스)</td><td>알림 이메일 발송</td><td>이메일 주소, 알림 본문</td></tr>
-            <tr><td>Coupang Corp.</td><td>어필리에이트 변환</td><td>상품 URL만 (사용자 ID 미전송)</td></tr>
-          </tbody>
-        </table>
-      </div>
+<blockquote>행동 분석 데이터에는 <strong>검색어 원문이 포함됩니다</strong> (예: "에어팟"). 다만 사용자의 이메일/이름/주소 등 직접 식별자는 포함하지 않습니다. Mixpanel은 분석 목적으로만 사용되며, 광고나 제3자 마케팅 목적으로 활용되지 않습니다.</blockquote>
 
-      <!-- ============ 6. 변경 이력 ============ -->
-      <h2 id="sec6">6. 변경 이력</h2>
-      <div class="tbl-wrap">
-        <table>
-          <thead><tr><th>버전</th><th>시행일</th><th>주요 변경</th></tr></thead>
-          <tbody>
-            <tr><td>v0.1 (베타)</td><td>2026-04-26</td><td>최초 작성</td></tr>
-            <tr><td><strong>v0.2 (베타)</strong></td><td>2026-04-26</td><td>§4.1 즉시 삭제 메커니즘 구현 반영. §2.2에 그룹 단위 목표가 명시.</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p>처리방침이 변경되는 경우 본 확장의 옵션 페이지를 통해 최소 7일 전에 공지합니다. 사용자에게 불리한 변경의 경우 별도 동의를 받습니다.</p>
+<h3>2.5 쿠팡 파트너스 어필리에이트 변환</h3>
 
-      <!-- ============ 7. 문의 ============ -->
-      <h2 id="sec7">7. 문의</h2>
-      <div class="tbl-wrap">
-        <table>
-          <tbody>
-            <tr><th>이메일</th><td><a href="mailto:arma94@gmail.com">arma94@gmail.com</a></td></tr>
-            <tr><th>응답 목표</th><td>영업일 기준 3일 이내</td></tr>
-          </tbody>
-        </table>
-      </div>
+<p>본 확장은 쿠팡 상품 URL을 어필리에이트 추적이 가능한 단축 URL로 변환합니다. 이 과정에서 사용자의 식별 정보는 쿠팡에 전송되지 않으며, <strong>상품 URL만 변환 목적으로 일시 처리</strong>됩니다.</p>
 
-      <!-- ============ 부록 ============ -->
-      <h2 id="appendix">부록: Phase 2에서 추가될 예정 사항</h2>
-      <p>본 처리방침은 베타 단계의 v0.2입니다. 정식 출시 시 다음이 추가됩니다:</p>
-      <ul class="appendix">
-        <li>사업자 등록 시 사업자 정보 보강</li>
-        <li>최근 검색이력(searchHistory) 미러링 (v1.24.2 추가 예정)</li>
-        <li>가격 변동 이력 / 알림 발송 기록 미러링 (Edge Function 작업 후)</li>
-        <li>Mixpanel opt-out 토글</li>
-        <li>보유 기간 만료 시 자동 익명화 정책</li>
-        <li>GDPR / CCPA 대응 항목 (해외 사용자 발생 시)</li>
-      </ul>
+<table>
+  <tr><th>항목</th><th>처리 방식</th></tr>
+  <tr><td>변환 대상 URL</td><td>Supabase Edge Function 서버에 24시간 익명 캐시 (사용자 ID 미저장)</td></tr>
+  <tr><td>변환된 URL 클릭 시</td><td>쿠팡 서버가 클릭을 카운트 (본 확장의 어필리에이트 ID로 귀속)</td></tr>
+</table>
 
-    </main>
+<h2>3. 개인정보의 저장 위치</h2>
 
-  </div>
+<table>
+  <tr><th>데이터</th><th>저장 위치</th><th>운영 주체</th><th>데이터 센터</th></tr>
+  <tr><td>클라우드 미러 데이터 (2.2, 2.3)</td><td>Supabase</td><td>Supabase Inc. (미국)</td><td>일본 도쿄 리전</td></tr>
+  <tr><td>인증 토큰 (사용자 PC 측)</td><td>Chrome 브라우저의 <code>chrome.storage.local</code></td><td>Google (사용자 본인)</td><td>사용자 PC</td></tr>
+  <tr><td>행동 분석 데이터 (2.4)</td><td>Mixpanel</td><td>Mixpanel Inc. (미국)</td><td>미국 (기본)</td></tr>
+  <tr><td>동의어 사전 / 이벤트 메타데이터</td><td>godohosting.com</td><td>Arma94 호스팅 계정</td><td>대한민국</td></tr>
+</table>
 
-  <!-- ============ FOOTER ============ -->
-  <footer>
-    <div>특허출원 10-2024-0079467 · © 2026 모자이크 쇼핑</div>
-    <div class="footer-row">
-      <a href="mailto:arma94@gmail.com">arma94@gmail.com</a>
-      <a href="https://github.com/arma94-prog/mosaic-shopping" target="_blank" rel="noopener">랜딩페이지</a>
-    </div>
-  </footer>
+<blockquote>클라우드 미러 데이터는 <strong>PostgreSQL의 Row Level Security 기능</strong>을 통해 본인만 조회 가능하도록 보호됩니다.</blockquote>
+
+<h2>4. 사용자 권리와 행사 방법</h2>
+
+<h3>4.1 동의 철회 / 데이터 삭제</h3>
+
+<p>옵션 페이지의 <strong>"연결 해제"</strong> 버튼을 클릭하면, 다음이 <strong>순차적으로 즉시 실행</strong>됩니다:</p>
+
+<ol>
+  <li><strong>클라우드(Supabase)에 저장된 본인의 모든 미러 데이터 삭제</strong> — 북마크 그룹, 북마크 항목, 핀고정 키워드, 검색 이력, 사용자 환경설정.</li>
+  <li><strong>Supabase 측 인증 세션 종료</strong> — 발급된 토큰 무효화.</li>
+  <li><strong>PC의 인증 토큰 삭제</strong> — 더 이상 클라우드 호출 불가.</li>
+</ol>
+
+<blockquote>v0.3(v1.24.2)에서 1단계 삭제 대상에 검색 이력과 사용자 환경설정이 추가되었습니다.</blockquote>
+
+<p><strong>예외 처리</strong>: 1단계가 네트워크 오류 등으로 실패한 경우에도 2-3단계는 진행됩니다(토큰 끊기 자체는 무조건 성공). 1단계 실패 시 클라우드 데이터가 남을 수 있으므로, 인터넷 환경 복구 후 재연결 → 재해제 또는 <a href="mailto:arma94@gmail.com">arma94@gmail.com</a>으로 메일 주시면 3영업일 내 수동 처리합니다.</p>
+
+<h3>4.2 데이터 열람 / 정정</h3>
+
+<p>본 확장의 사이드 패널 및 옵션 페이지에서 직접 본인 북마크/키워드/환경설정을 열람·정정·삭제할 수 있습니다. 추가 정보 열람을 원하실 경우 위 이메일로 연락 부탁드립니다.</p>
+
+<h3>4.3 행동 분석 거부</h3>
+
+<p>Mixpanel 행동 분석은 현재 별도 거부(opt-out) UI가 제공되지 않습니다. 거부를 원하실 경우 본 확장 사용을 중단해주시기 바랍니다. Phase 2에서 거부 토글 추가 예정.</p>
+
+<h2>5. 제3자 제공 / 위탁</h2>
+
+<p>본 확장은 <strong>광고주를 포함한 어떤 제3자에게도</strong> 사용자의 개인정보를 판매·제공·공유하지 않습니다.</p>
+
+<p>다만, 본 확장의 운영을 위해 다음 처리위탁이 발생합니다:</p>
+
+<table>
+  <tr><th>위탁업체</th><th>위탁 업무</th><th>처리 항목</th></tr>
+  <tr><td>Supabase Inc.</td><td>데이터 저장, 인증</td><td>2.1, 2.2, 2.3 항목</td></tr>
+  <tr><td>Google LLC</td><td>OAuth 인증</td><td>이메일, 사용자 ID</td></tr>
+  <tr><td>Mixpanel Inc.</td><td>행동 분석</td><td>2.4 항목</td></tr>
+  <tr><td>Resend (또는 동급 서비스)</td><td>알림 이메일 발송</td><td>이메일 주소, 알림 본문</td></tr>
+  <tr><td>Coupang Corp.</td><td>어필리에이트 변환</td><td>상품 URL만 (사용자 ID 미전송)</td></tr>
+</table>
+
+<h2>6. 변경 이력</h2>
+
+<table>
+  <tr><th>버전</th><th>시행일</th><th>주요 변경</th></tr>
+  <tr><td>v0.1 (베타)</td><td>2026-04-26</td><td>최초 작성</td></tr>
+  <tr><td>v0.2 (베타)</td><td>2026-04-26</td><td>§4.1 즉시 삭제 메커니즘 구현 반영. §2.2에 그룹 단위 목표가 명시.</td></tr>
+  <tr><td>v0.3 (베타)</td><td>2026-04-27</td><td>§2.2에 검색 이력 + 사용자 환경설정 미러링 명시. §4.1 삭제 대상도 확장. 정식 본문 GitHub Pages 단일 진실 소스로 전환.</td></tr>
+</table>
+
+<p>처리방침이 변경되는 경우 본 확장의 옵션 페이지를 통해 최소 7일 전에 공지합니다. 사용자에게 불리한 변경의 경우 별도 동의를 받습니다.</p>
+
+<h2>7. 문의</h2>
+
+<table>
+  <tr><th>채널</th><th>연락처</th></tr>
+  <tr><td>이메일</td><td><a href="mailto:arma94@gmail.com">arma94@gmail.com</a></td></tr>
+  <tr><td>응답 목표</td><td>영업일 기준 3일 이내</td></tr>
+</table>
+
+<h2>부록: Phase 2에서 추가될 예정 사항</h2>
+
+<p>본 처리방침은 베타 단계의 v0.3입니다. 정식 출시 시 다음이 추가됩니다:</p>
+
+<ul>
+  <li>사업자 등록 시 사업자 정보 보강</li>
+  <li>가격 변동 이력 / 알림 발송 기록 미러링 (Edge Function 작업 후)</li>
+  <li>Mixpanel opt-out 토글</li>
+  <li>보유 기간 만료 시 자동 익명화 정책</li>
+  <li>GDPR / CCPA 대응 항목 (해외 사용자 발생 시)</li>
+</ul>
 
 </body>
 </html>
