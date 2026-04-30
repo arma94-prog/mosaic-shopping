@@ -16,7 +16,7 @@
         { "icon": "gmarket.png", "name": "G마켓 슈퍼딜",   "url": "https://www.gmarket.co.kr/n/superdeal?spm=gmktpc.home.0.0.1fbf486aMR3syN" },
         { "icon": "auction.png", "name": "옥션 올킬",    "url": "https://www.auction.co.kr/n/allkill" },
 	{ "icon": "ssg.png",     "name": "SSG 특가",    "url": "https://www.ssg.com/page/pc/SpecialPrice.ssg" },
-        { "icon": "11st.png",    "name": "11번가 쇼킹딜",  "url": "https://deal.11st.co.kr/browsing/DealAction.tmall?method=getShockingDealMain" }
+        { "icon": "11st.png",    "name": "11번가 쇼킹딜",  "url": "https://deal.11st.co.kr/browsing/DealAction.tmall?method=getShockingDealMain", "urlMobile" : "https://m.11st.co.kr/page/main/deal" }
       ]},
     { "key": "fashion", "label": "패션",
       "items": [
