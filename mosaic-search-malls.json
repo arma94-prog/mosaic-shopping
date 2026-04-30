@@ -22,7 +22,7 @@
 	{ "icon": "coupang.png", "name": "쿠팡",     "url": "https://www.coupang.com/np/search?q={kw}", "isDefault": true },
         { "icon": "gmarket.png", "name": "G마켓",    "url": "https://browse.gmarket.co.kr/search?keyword={kw}" },
         { "icon": "ssg.png",     "name": "SSG",      "url": "https://www.ssg.com/search.ssg?target=all&query={kw}" },
-        { "icon": "11st.png",    "name": "11번가",   "url": "https://search.11st.co.kr/Search.tmall?kwd={kw}" },
+        { "icon": "11st.png",    "name": "11번가",   "url": "https://search.11st.co.kr/Search.tmall?kwd={kw}" , "urlMobile": "https://search.11st.co.kr/MW/search?searchKeyword={kw}" },
         { "icon": "lotteon.png",     "name": "롯데ON",      "url": "https://www.lotteon.com/csearch/search/search?render=search&platform=pc&q={kw}&mallId=1&sort=ranking" }
       ]
     },
