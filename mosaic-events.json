@@ -54,15 +54,6 @@
 	{ "icon": "coupang.png",     "name": "로켓프레시 한정특가",    "url": "https://link.coupang.com/a/esgrIw" },
 	{ "icon": "dongwonmall.png",     "name": "동원몰 디데이딜",    "url": "https://www.dongwonmall.com/display/dDayDeal.do" }
       ]},
-    { "key": "local", "label": "산지제철",
-      "items": [
-        { "icon": "naver.png",    "name": "네이버 산지제철", "url": "https://shopping.naver.com/fresh/directfarm/home" },
-        { "icon": "nonghyup.png", "name": "농협몰 추천특가",     "url": "https://www.nonghyupmall.com/BC39010R/weeklyList.nh" },
-	{ "icon": "8dogam.png",   "name": "팔도감 특가",     "url": "https://8dogam.com/?tab=deals" },
-        { "icon": "dolfarmer.png",   "name": "돌쇠네 농산물",     "url": "https://www.dolfarmer.com/" },
-	{ "icon": "epost.png",    "name": "우체국 오늘의특가",     "url": "https://mall.epost.go.kr/fo/event/retrieveSpecialPrice.do" },
-        { "icon": "pirates.png",  "name": "인어교주해적단 제철",     "url": "https://smartstore.naver.com/tpirates/category/0608c3f9e33d476cb18aeff8043528a0?cp=1" }
-       ]},
     { "key": "digital", "label": "디지털",
       "items": [
         { "icon": "coupang.png",   "name": "쿠팡 금주의 기획전",   "url": "https://www.coupang.com/np/campaigns/23459" },
@@ -89,6 +80,15 @@
 	{ "icon": "malltail.png",    "name": "몰테일 핫딜",     "url": "https://post.malltail.com/hotdeals/index" },
         { "icon": "aliexpress.png",    "name": "알리익스페스 직구핫딜",  "url": "https://www.aliexpress.com/ssr/300002660/Deals-HomePage" },
 	{ "icon": "iherb.png",    "name": "아이허브 특가",     "url": "https://kr.iherb.com/deals" }
+      ]},
+	{ "key": "local", "label": "산지제철",
+      "items": [
+        { "icon": "naver.png",    "name": "네이버 산지제철", "url": "https://shopping.naver.com/fresh/directfarm/home" },
+        { "icon": "nonghyup.png", "name": "농협몰 추천특가",     "url": "https://www.nonghyupmall.com/BC39010R/weeklyList.nh" },
+		{ "icon": "8dogam.png",   "name": "팔도감 특가",     "url": "https://8dogam.com/?tab=deals" },
+        { "icon": "dolfarmer.png",   "name": "돌쇠네 농산물",     "url": "https://www.dolfarmer.com/" },
+		{ "icon": "epost.png",    "name": "우체국 오늘의특가",     "url": "https://mall.epost.go.kr/fo/event/retrieveSpecialPrice.do" },
+        { "icon": "pirates.png",  "name": "인어교주해적단 제철",     "url": "https://smartstore.naver.com/tpirates/category/0608c3f9e33d476cb18aeff8043528a0?cp=1" }
       ]},
    { "key": "custom_event_1", "label": "사용자 지정 #1",
       "items": [ 
