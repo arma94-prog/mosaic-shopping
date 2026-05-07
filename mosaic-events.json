@@ -79,7 +79,7 @@
 	{ "icon": "ppomppu.png",    "name": "해외 뽐뿌",     "url": "https://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu4" },
 	{ "icon": "malltail.png",    "name": "몰테일 핫딜",     "url": "https://post.malltail.com/hotdeals/index" },
         { "icon": "aliexpress.png",    "name": "알리익스페스 직구핫딜",  "url": "https://www.aliexpress.com/ssr/300002660/Deals-HomePage" },
-	{ "icon": "iherb.png",    "name": "아이허브 특가",     "url": "https://kr.iherb.com/deals" }
+	{ "icon": "iherb.png",    "name": "아이허브 특가",     "url": "https://kr.iherb.com/deals?rcode=JUG298" }
       ]},
 	{ "key": "local", "label": "산지제철",
       "items": [
