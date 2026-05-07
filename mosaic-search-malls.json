@@ -88,7 +88,7 @@
         { "icon": "temu.png",  "name": "테무", "url": "https://www.temu.com/search_result.html?search_key={kw}"},
 	{ "icon": "amazon.png",  "name": "아마존", "url": "https://www.amazon.com/s?k={kw}"},
 	{ "icon": "ebay.png",	"name": "이베이", "url": "https://www.ebay.com/sch/i.html?_nkw={kw}&_sacat=0&_from=R40&_trksid=m570.l1313" },
-	{ "icon": "iherb.png", "name": "iherb", "url": "https://kr.iherb.com/search?kw={kw}" }
+	{ "icon": "iherb.png", "name": "iherb", "url": "https://kr.iherb.com/search?kw={kw}&rcode=JUG298" }
       ]
     },
     {
