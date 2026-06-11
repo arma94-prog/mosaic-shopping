@@ -42,7 +42,7 @@
         { "icon": "shinsaegae.png", "name": "신세계백화점 Deal",   "url": "https://department.ssg.com/page/pc/specialSale.ssg" },
         { "icon": "hyundai.png",    "name": "현대백화점",     "url": "https://www.thehyundai.com/" },
         { "icon": "galleria.png",   "name": "갤러리아 HOT PICK", "url": "https://www.galleria.co.kr/shop/initDealShop.action?galloc=COMMON_00_GNB&galloc_detail=HotPick" },
-      	{ "icon": "ohou.png",       "name": "오늘의집 오늘의딜",     "url": "https://store.ohou.se/today_deals" },
+      	{ "icon": "ohou.png",       "name": "오늘의집 오늘의딜",     "url": "https://ozip.me/Pin7RoG?af" },
 	{ "icon": "ikea.png",       "name": "이케아 더 낮은 새로운가격",       "url": "https://www.ikea.com/kr/ko/cat/lower-price/" }
       ]}, 
    { "key": "food", "label": "푸드",
