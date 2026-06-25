@@ -2,7 +2,7 @@
   "version": "2.1",
   "updated": "2026-04-13",
   "iconBase": "https://arma94-prog.github.io/mosaic-shopping/icon/",
-  "_note": "placeholder는 {kw}. 아이콘은 events.json과 공통. isDefault=true는 카테고리별 디폴트. 쿠팡이 있는 카테고리는 쿠팡이 디폴트(수익원).",
+  "_note": "placeholder는 {kw}. 아이콘은 events.json과 공통. isDefault=true는 카테고리별 디폴트. 쿠팡이 있는 카테고리는 쿠팡이 디폴트.",
   "_uncertain": ["auction", "brandi", "wconcept", "glowpick", "dongwonmall", "dolfarmer", "lge", "galleria", "hyundai", "cjthemarket", "nonghyup", "8dogam", "epost", "pirates", "himart", "samsung"],
   "categories": [
     {
@@ -88,7 +88,7 @@
         { "icon": "temu.png",  "name": "테무", "url": "https://www.temu.com/search_result.html?search_key={kw}"},
 	{ "icon": "amazon.png",  "name": "아마존", "url": "https://www.amazon.com/s?k={kw}"},
 	{ "icon": "ebay.png",	"name": "이베이", "url": "https://www.ebay.com/sch/i.html?_nkw={kw}&_sacat=0&_from=R40&_trksid=m570.l1313" },
-	{ "icon": "iherb.png", "name": "iherb", "url": "https://kr.iherb.com/search?kw={kw}&rcode=JUG298" }
+	{ "icon": "iherb.png", "name": "iherb", "url": "https://kr.iherb.com/search?kw={kw}" }
       ]
     },
     {
