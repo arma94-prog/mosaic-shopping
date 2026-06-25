@@ -19,7 +19,7 @@
       "label": "종합몰",
       "items": [
         { "icon": "naverstore.png",   "name": "네이버 스토어",   "url": "https://search.shopping.naver.com/ns/search?query={kw}" },
-	{ "icon": "coupang.png", "name": "쿠팡",     "url": "https://www.coupang.com/np/search?q={kw}", "isDefault": true },
+	    { "icon": "coupang.png", "name": "쿠팡",     "url": "https://www.coupang.com/np/search?q={kw}", "isDefault": true },
         { "icon": "gmarket.png", "name": "G마켓",    "url": "https://browse.gmarket.co.kr/search?keyword={kw}" },
         { "icon": "ssg.png",     "name": "SSG",      "url": "https://www.ssg.com/search.ssg?target=all&query={kw}" },
         { "icon": "11st.png",    "name": "11번가",   "url": "https://search.11st.co.kr/Search.tmall?kwd={kw}" , "urlMobile": "https://search.11st.co.kr/MW/search?searchKeyword={kw}" },
@@ -40,22 +40,26 @@
     },
     {
       "key": "beauty",
-      "label": "뷰티·리빙",
+      "label": "뷰티",
       "items": [
         { "icon": "oliveyoung.png", "name": "올리브영",      "url": "https://www.oliveyoung.co.kr/store/search/getSearchMain.do?query={kw}", "isDefault": true },
-        { "icon": "zigzag.png",     "name": "지그재그 뷰티", "url": "https://zigzag.kr/search?keyword={kw}" },
-        { "icon": "ohou.png",       "name": "오늘의집",      "url": "https://ohou.se/productions/feed?query={kw}" },
-        { "icon": "ikea.png",       "name": "이케아",        "url": "https://www.ikea.com/kr/ko/search/?q={kw}" }
+		{ "icon": "musinsa.png",  "name": "무신사 뷰티",    "url": "https://www.musinsa.com/category/104/goods?keyword={kw}&keywordType=keyword&gf=A" },
+		{ "icon": "ably.png",     "name": "에이블리 뷰티",  "url": "https://m.a-bly.com/search?screen_name=SEARCH_RESULT&keyword={kw}&search_type=DIRECT" },
+		{ "icon": "kurly.png",       "name": "뷰티 컬리",       "url": "https://www.kurly.com/search?sword={kw}&site=BEAUTY&page=1" },
+		{ "icon": "zigzag.png",     "name": "지그재그 뷰티", "url": "https://zigzag.kr/search?keyword={kw}" },
+		{ "icon": "glowpick.png",     "name": "글로우픽", "url": "https://glowpick.com/searches/keywords?search={kw}&tab=all" }
       ]
     },
     {
       "key": "department",
-      "label": "백화점",
+      "label": "백화점·리빙",
       "items": [
         { "icon": "lotte.png",      "name": "롯데 백화점",     "url": "https://www.lotteon.com/search/search/search.ecn?render=search&q={kw}", "isDefault": true },
         { "icon": "shinsaegae.png", "name": "신세계 백화점",   "url": "https://department.ssg.com/search.ssg?target=all&query={kw}" },
         { "icon": "hyundai.png",    "name": "현대 백화점",     "url": "http://hi.thehyundai.com/search?tab=product&q={kw}&disPlaySize=36" },
-        { "icon": "galleria.png",   "name": "갤러리아", "url": "https://www.galleria.co.kr/p/search/search.jsp?keyword={kw}" }
+        { "icon": "galleria.png",   "name": "갤러리아", "url": "https://www.galleria.co.kr/p/search/search.jsp?keyword={kw}" },
+		{ "icon": "ohou.png",       "name": "오늘의집",      "url": "https://ohou.se/productions/feed?query={kw}" },
+        { "icon": "ikea.png",       "name": "이케아",        "url": "https://www.ikea.com/kr/ko/search/?q={kw}" }
       ]
     },
     {
