@@ -6,24 +6,15 @@
   "_uncertain": ["auction", "brandi", "wconcept", "glowpick", "dongwonmall", "dolfarmer", "lge", "galleria", "hyundai", "cjthemarket", "nonghyup", "8dogam", "epost", "pirates", "himart", "samsung"],
   "categories": [
     {
-      "key": "digital",
-      "label": "가격비교",
-      "items": [
-        { "icon": "naver.png",   "name": "네이버 가격비교",   "url": "https://search.shopping.naver.com/search/all?query={kw}" },
-	{ "icon": "danawa.png", "name": "다나와", "url": "https://search.danawa.com/dsearch.php?query={kw}", "isDefault": true },
-        { "icon": "enuri.png", "name": "에누리", "url": "https://www.enuri.com/search.jsp?keyword={kw}" }
-      ]
-    },
-    {
       "key": "general",
       "label": "종합몰",
       "items": [
+		{ "icon": "naver.png",   "name": "네이버 가격비교",   "url": "https://search.shopping.naver.com/search/all?query={kw}" },
         { "icon": "naverstore.png",   "name": "네이버 스토어",   "url": "https://search.shopping.naver.com/ns/search?query={kw}" },
 	    { "icon": "coupang.png", "name": "쿠팡",     "url": "https://www.coupang.com/np/search?q={kw}", "isDefault": true },
         { "icon": "gmarket.png", "name": "G마켓",    "url": "https://browse.gmarket.co.kr/search?keyword={kw}" },
-        { "icon": "ssg.png",     "name": "SSG",      "url": "https://www.ssg.com/search.ssg?target=all&query={kw}" },
-        { "icon": "11st.png",    "name": "11번가",   "url": "https://search.11st.co.kr/Search.tmall?kwd={kw}" , "urlMobile": "https://search.11st.co.kr/MW/search?searchKeyword={kw}" },
-        { "icon": "lotteon.png",     "name": "롯데ON",      "url": "https://www.lotteon.com/csearch/search/search?render=search&platform=pc&q={kw}&mallId=1&sort=ranking" }
+		{ "icon": "11st.png",    "name": "11번가",   "url": "https://search.11st.co.kr/Search.tmall?kwd={kw}" , "urlMobile": "https://search.11st.co.kr/MW/search?searchKeyword={kw}" },
+        { "icon": "ssg.png",     "name": "SSG",      "url": "https://www.ssg.com/search.ssg?target=all&query={kw}" }
       ]
     },
     {
@@ -109,6 +100,15 @@
         { "icon": "ruliweb.png",    "name": "루리웹",         "url": "https://bbs.ruliweb.com/market/board/1020?search_type=subject&search_key={kw}" },
         { "icon": "daangn.png",  "name": "당근", "url": "https://www.daangn.com/kr/buy-sell/s/?in=&search={kw}" },
 		{ "icon": "joongna.png",  "name": "중고나라", "url": "https://web.joongna.com/search/{kw}" }
+    },
+	{
+      "key": "digital",
+      "label": "가격비교",
+      "items": [
+        { "icon": "naver.png",   "name": "네이버 가격비교",   "url": "https://search.shopping.naver.com/search/all?query={kw}" },
+		{ "icon": "danawa.png", "name": "다나와", "url": "https://search.danawa.com/dsearch.php?query={kw}", "isDefault": true },
+        { "icon": "enuri.png", "name": "에누리", "url": "https://www.enuri.com/search.jsp?keyword={kw}" }
+      ]
     },
     {
       "key": "custom_search_4",
