@@ -9,9 +9,9 @@
       "key": "general",
       "label": "종합몰",
       "items": [
-		{ "icon": "naver.png",   "name": "네이버 가격비교",   "url": "https://search.shopping.naver.com/search/all?query={kw}" },
+		{ "icon": "naver.png",   "name": "네이버 가격비교",   "url": "https://search.shopping.naver.com/search/all?query={kw}" , "isDefault": true },
         { "icon": "naverstore.png",   "name": "네이버 스토어",   "url": "https://search.shopping.naver.com/ns/search?query={kw}" },
-	    { "icon": "coupang.png", "name": "쿠팡",     "url": "https://www.coupang.com/np/search?q={kw}", "isDefault": true },
+	    { "icon": "coupang.png", "name": "쿠팡",     "url": "https://www.coupang.com/np/search?q={kw}" },
         { "icon": "gmarket.png", "name": "G마켓",    "url": "https://browse.gmarket.co.kr/search?keyword={kw}" },
 		{ "icon": "11st.png",    "name": "11번가",   "url": "https://search.11st.co.kr/Search.tmall?kwd={kw}" , "urlMobile": "https://search.11st.co.kr/MW/search?searchKeyword={kw}" },
         { "icon": "ssg.png",     "name": "SSG",      "url": "https://www.ssg.com/search.ssg?target=all&query={kw}" }
@@ -82,7 +82,7 @@
       "key": "local",
       "label": "산지제철",
       "items": [
-		{ "icon": "nonghyup.png", "name": "농협몰",         "url": "https://www.nonghyupmall.com/BC1F010M/srchTotalList.nh?searchTerm_main={kw}" },
+		{ "icon": "nonghyup.png", "name": "농협몰",         "url": "https://www.nonghyupmall.com/BC1F010M/srchTotalList.nh?searchTerm_main={kw}", "isDefault": true},
         { "icon": "8dogam.png",   "name": "팔도감",         "url": "https://8dogam.com/search?keyword={kw}" },
         { "icon": "dolfarmer.png","name": "돌쇠네",         "url": "https://www.dolfarmer.com/Home/Search?sval={kw}" },
         { "icon": "epost.png",    "name": "우체국",         "url": "https://mall.epost.go.kr/fo/search/search.do?searchTerm={kw}" },
@@ -94,7 +94,7 @@
       "key": "sns",
       "label": "커뮤니티 핫딜·중고",
       "items": [
-        { "icon": "ppomppu.png", "name": "뽐뿌 게시판",         "url": "https://www.ppomppu.co.kr/zboard/zboard.php?search_type=sub_memo&id=ppomppu&page_num=20&keyword={kw}" },
+        { "icon": "ppomppu.png", "name": "뽐뿌 게시판",         "url": "https://www.ppomppu.co.kr/zboard/zboard.php?search_type=sub_memo&id=ppomppu&page_num=20&keyword={kw}" , "isDefault": true},
         { "icon": "algumon.png",   "name": "알구몬",         "url": "https://www.algumon.com/n/deal?keyword={kw}&period=1w" },
         { "icon": "quasarzone.png","name": "퀘이사존 핫딜",         "url": "https://quasarzone.com/bbs/qb_saleinfo?_method=post&type=&page=1&_token=&category=&shop=&popularity=&kind=subject&keyword={kw}&sort=num%2C+reply&direction=DESC" },
         { "icon": "ruliweb.png",    "name": "루리웹",         "url": "https://bbs.ruliweb.com/market/board/1020?search_type=subject&search_key={kw}" },
@@ -105,7 +105,7 @@
       "key": "digital",
       "label": "가격비교",
       "items": [
-        { "icon": "naver.png",   "name": "네이버 가격비교",   "url": "https://search.shopping.naver.com/search/all?query={kw}" },
+        { "icon": "naver.png",   "name": "네이버 가격비교",   "url": "https://search.shopping.naver.com/search/all?query={kw}" , "isDefault": true},
 		{ "icon": "danawa.png", "name": "다나와", "url": "https://search.danawa.com/dsearch.php?query={kw}", "isDefault": true },
         { "icon": "enuri.png", "name": "에누리", "url": "https://www.enuri.com/search.jsp?keyword={kw}" }
       ]
