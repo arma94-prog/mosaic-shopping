@@ -100,6 +100,7 @@
         { "icon": "ruliweb.png",    "name": "루리웹",         "url": "https://bbs.ruliweb.com/market/board/1020?search_type=subject&search_key={kw}" },
         { "icon": "daangn.png",  "name": "당근", "url": "https://www.daangn.com/kr/buy-sell/s/?in=&search={kw}" },
 		{ "icon": "joongna.png",  "name": "중고나라", "url": "https://web.joongna.com/search/{kw}" }
+	  ]
     },
 	{
       "key": "digital",
