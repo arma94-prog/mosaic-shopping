@@ -106,7 +106,7 @@
       "label": "가격비교",
       "items": [
         { "icon": "naver.png",   "name": "네이버 가격비교",   "url": "https://search.shopping.naver.com/search/all?query={kw}" , "isDefault": true},
-		{ "icon": "danawa.png", "name": "다나와", "url": "https://search.danawa.com/dsearch.php?query={kw}", "isDefault": true },
+		{ "icon": "danawa.png", "name": "다나와", "url": "https://search.danawa.com/dsearch.php?query={kw}"},
         { "icon": "enuri.png", "name": "에누리", "url": "https://www.enuri.com/search.jsp?keyword={kw}" }
       ]
     },
